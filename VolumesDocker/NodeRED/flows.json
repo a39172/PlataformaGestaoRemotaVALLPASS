@@ -1,0 +1,3882 @@
+[
+    {
+        "id": "bf401a451a451c6e",
+        "type": "tab",
+        "label": "Entidades",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9cf26eb01f1fe42f",
+        "type": "tab",
+        "label": "Grupos de serviço",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1c55d8190ec91694",
+        "type": "tab",
+        "label": "Provisionamento - atuadores",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "15e6cb2049d0df7a",
+        "type": "tab",
+        "label": "Provisionamento - sensores",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5543de58dc0e4c18",
+        "type": "tab",
+        "label": "Subscrições globais",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b00ffc16ab38afc6",
+        "type": "tab",
+        "label": "Subscrições de passadeira",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f3c28d049ebb6fce",
+        "type": "tab",
+        "label": "Telemetria - sensores",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d1b868433c3dfac5",
+        "type": "tab",
+        "label": "Atuadores - Passadeira 0",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a6769c33969e2be6",
+        "type": "mqtt-broker",
+        "name": "BI_VALLPASS__MQTT_broker",
+        "broker": "eclipse-mosquitto",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9267e91b2989ba70",
+        "type": "http request",
+        "z": "bf401a451a451c6e",
+        "name": "Criar entidade",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/ld+json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "2813bb647296c2fa"
+            ]
+        ]
+    },
+    {
+        "id": "698a91c5f67c0c74",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Empresa",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:Company:ValledSolucoesEnergeticas\",\"type\":\"Company\",\"name\":{\"type\":\"Property\",\"value\":\"Valled Soluções Energéticas\"},\"address\":{\"type\":\"Property\",\"value\":{\"streetAddress\":\"Zona Industrial Mós Lote 6/7\",\"postalCode\":\"5300-692\",\"addressLocality\":\"Bragança\",\"addressCountry\":\"Portugal\"}},\"location\":{\"type\":\"Point\",\"coordinates\":[41.71419054063052,-6.806023628210983]},\"taxID\":{\"type\":\"Property\",\"value\":\"510612865\"},\"email\":{\"type\":\"Property\",\"value\":\"geral@valled.pt\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "2813bb647296c2fa",
+        "type": "debug",
+        "z": "bf401a451a451c6e",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "be60d0ec61598633",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Cliente",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:Client:ESTiG\",\"type\":\"Client\",\"name\":{\"type\":\"Property\",\"value\":\"Escola Superior de Tecnologia e Gestão de Bragança\"},\"address\":{\"type\":\"Property\",\"value\":{\"streetAddress\":\"Escola Superior de Tecnologia e Gestão\",\"postalCode\":\"5300-253\",\"addressLocality\":\"Bragança\",\"addressCountry\":\"Portugal\"}},\"location\":{\"type\":\"Point\",\"coordinates\":[41.796471938458744,-6.768046172927249]},\"taxID\":{\"type\":\"Property\",\"value\":\"600013758\"},\"email\":{\"type\":\"Property\",\"value\":\"estig@ipb.pt\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "7b31be939a4b6ff2",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Passadeira 0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:Crosswalk:IPB_BGC_0000000\",\"type\":\"Crosswalk\",\"name\":{\"type\":\"Property\",\"value\":\"IPB_BGC_0000000\"},\"location\":{\"type\":\"Point\",\"coordinates\":[41.8184594659375,-6.749247147510722]},\"owner\":{\"type\":\"Relationship\",\"object\":\"urn:ngsi-ld:Client:ESTiG\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "9dcdc6f1dff8bec9",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Modelo luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:LuminaireModel:MicroplusGermany_Microled_80_4000\",\"type\":\"LuminaireModel\",\"lampBrandName\":{\"type\":\"Property\",\"value\":\"Microplus Germany\"},\"lampModelName\":{\"type\":\"Property\",\"value\":\"Microled\"},\"lampTechnology\":{\"type\":\"Property\",\"value\":\"LED\"},\"powerConsumption\":{\"type\":\"Property\",\"value\":\"80w\"},\"luminousFlux\":{\"type\":\"Property\",\"value\":\"15440\"},\"colorTemperature\":{\"type\":\"Property\",\"value\":\"4000\"},\"workingLife\":{\"type\":\"Property\",\"value\":\"100000\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "abcda6af468fab6d",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Modelo bateria Poste 0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_0_BM\",\"type\":\"BatteryModel\",\"brandName\":{\"type\":\"Property\",\"value\":\"LTP Energias\"},\"modelName\":{\"type\":\"Property\",\"value\":\"JDG75\"},\"nominalVoltage\":{\"type\":\"Property\",\"value\":\"12\"},\"nominalCapacity\":{\"type\":\"Property\",\"value\":\"75\"},\"refDevice\":{\"type\":\"Relationship\",\"object\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "04c5be037c4a5258",
+        "type": "inject",
+        "z": "bf401a451a451c6e",
+        "name": "Modelo bateria Poste 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_1_BM\",\"type\":\"BatteryModel\",\"brandName\":{\"type\":\"Property\",\"value\":\"LTP Energias\"},\"modelName\":{\"type\":\"Property\",\"value\":\"JDG75\"},\"nominalVoltage\":{\"type\":\"Property\",\"value\":\"12\"},\"nominalCapacity\":{\"type\":\"Property\",\"value\":\"75\"},\"refDevice\":{\"type\":\"Relationship\",\"object\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "9267e91b2989ba70"
+            ]
+        ]
+    },
+    {
+        "id": "97a7b4323f573564",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Postes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"h2f7cj79yre2teuin8fn\",\"entity_type\":\"Pole\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "541e8b7979c066f9",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"2xkob7uuwbu1g3el07ut\",\"entity_type\":\"TemperatureHumidityPressureSensor\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "990f5b6b0bc5ac9b",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Luminárias",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"soyz7ioc63kpg4qmah3e\",\"entity_type\":\"Luminaire\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "1f752c7e21ac35dd",
+        "type": "debug",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3e0d48a1e05577b0",
+        "type": "http request",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Provisionar grupo de serviço",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://iot-agent:49160/iot/services",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-service",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-servicepath",
+                "valueType": "other",
+                "valueValue": "/"
+            }
+        ],
+        "x": 1060,
+        "y": 220,
+        "wires": [
+            [
+                "1f752c7e21ac35dd"
+            ]
+        ]
+    },
+    {
+        "id": "11ff58f8f0dd269d",
+        "type": "comment",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Sensores",
+        "info": "",
+        "x": 160,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "988cabf76febad04",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"a8obddvi6hg6yxnyqozr\",\"entity_type\":\"BrightnessSensor\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "555ef63d56c26dc1",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"wmnshtp4yfjysxs62oju\",\"entity_type\":\"VehicleSensor\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "e06fd535e38bd39a",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"uulknx3258cn9jzz8eyq\",\"entity_type\":\"PedestrianSensor\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "04a0fb7c434bfe24",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"kc97hptjl7o3r42w7euq\",\"entity_type\":\"AccidentSensor\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "65cd823db8a72bbb",
+        "type": "inject",
+        "z": "9cf26eb01f1fe42f",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"services\":[{\"apikey\":\"8g52ph9sl1rtsu1osnwa\",\"entity_type\":\"BatteryMeasurement\",\"resource\":\"/iot/json\"}]}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 360,
+        "wires": [
+            [
+                "3e0d48a1e05577b0"
+            ]
+        ]
+    },
+    {
+        "id": "7748ce9fafcdc408",
+        "type": "comment",
+        "z": "1c55d8190ec91694",
+        "name": "Passadeira 0",
+        "info": "",
+        "x": 90,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4772e71d18a0e7e5",
+        "type": "inject",
+        "z": "1c55d8190ec91694",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0\",\"entity_name\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\",\"entity_type\":\"Pole\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"commands\":[{\"name\":\"on\",\"type\":\"Property\"},{\"name\":\"off\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"deviceState\",\"type\":\"Property\",\"value\":\"\"},{\"name\":\"location\",\"type\":\"GeoProperty\",\"value\":{\"type\":\"Point\",\"coordinates\":[41.81842398463051,-6.749271287390051]}},{\"name\":\"dateInstalled\",\"type\":\"Property\",\"value\":\"2023-05-30T17:00:00Z\"},{\"name\":\"controlledAsset\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Crosswalk:IPB_BGC_0000000\"}]}]}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "cd038067e5f0a6fb"
+            ]
+        ]
+    },
+    {
+        "id": "e9e6a69934e73083",
+        "type": "inject",
+        "z": "1c55d8190ec91694",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_Luminaire\",\"entity_name\":\"urn:ngsi-ld:Luminaire:IPB_BGC_0000000_0_Luminaire\",\"entity_type\":\"Luminaire\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"commands\":[{\"name\":\"on\",\"type\":\"Property\"},{\"name\":\"off\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"powerState\",\"type\":\"Property\",\"value\":\"\"},{\"name\":\"refStreetlightModel\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:LuminaireModel:MicroplusGermany_Microled_80_4000\"},{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"}]}]}",
+        "payloadType": "json",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "cd038067e5f0a6fb"
+            ]
+        ]
+    },
+    {
+        "id": "85d90b254ffaf2cd",
+        "type": "debug",
+        "z": "1c55d8190ec91694",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cd038067e5f0a6fb",
+        "type": "http request",
+        "z": "1c55d8190ec91694",
+        "name": "Provisionar atuadores",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://iot-agent:49160/iot/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-service",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-servicepath",
+                "valueType": "other",
+                "valueValue": "/"
+            }
+        ],
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "85d90b254ffaf2cd"
+            ]
+        ]
+    },
+    {
+        "id": "fbda0b29214b59e6",
+        "type": "comment",
+        "z": "1c55d8190ec91694",
+        "name": "Poste 0",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "acbeacafb254de91",
+        "type": "inject",
+        "z": "1c55d8190ec91694",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1\",\"entity_name\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\",\"entity_type\":\"Pole\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"commands\":[{\"name\":\"on\",\"type\":\"Property\"},{\"name\":\"off\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"deviceState\",\"type\":\"Property\",\"value\":\"\"},{\"name\":\"location\",\"type\":\"GeoProperty\",\"value\":{\"type\":\"Point\",\"coordinates\":[41.818495946697475,-6.749220995974784]}},{\"name\":\"dateInstalled\",\"type\":\"Property\",\"value\":\"2023-05-30T17:00:00Z\"},{\"name\":\"controlledAsset\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Crosswalk:IPB_BGC_0000000\"}]}]}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "cd038067e5f0a6fb"
+            ]
+        ]
+    },
+    {
+        "id": "38117bb2e996fef3",
+        "type": "inject",
+        "z": "1c55d8190ec91694",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_Luminaire\",\"entity_name\":\"urn:ngsi-ld:Luminaire:IPB_BGC_0000000_1_Luminaire\",\"entity_type\":\"Luminaire\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"commands\":[{\"name\":\"on\",\"type\":\"Property\"},{\"name\":\"off\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"powerState\",\"type\":\"Property\",\"value\":\"\"},{\"name\":\"refStreetlightModel\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:LuminaireModel:MicroplusGermany_Microled_80_4000\"},{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"}]}]}",
+        "payloadType": "json",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "cd038067e5f0a6fb"
+            ]
+        ]
+    },
+    {
+        "id": "97a483ae7ba81bdf",
+        "type": "comment",
+        "z": "1c55d8190ec91694",
+        "name": "Poste 1",
+        "info": "",
+        "x": 130,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4ee2018a4e0ba851",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_THP\",\"entity_name\":\"urn:ngsi-ld:TemperatureHumidityPressureSensor:IPB_BGC_0000000_0_THP\",\"entity_type\":\"TemperatureHumidityPressureSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"t\",\"name\":\"temperature\",\"type\":\"Property\"},{\"object_id\":\"h\",\"name\":\"relativeHumidity\",\"type\":\"Property\"},{\"object_id\":\"p\",\"name\":\"atmosphericPressure\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"}]}]}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "c744bfa959827fdd",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_I\",\"entity_name\":\"urn:ngsi-ld:BrightnessSensor:IPB_BGC_0000000_0_I\",\"entity_type\":\"BrightnessSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"illuminance\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"}]}]}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "5442b6912df86384",
+        "type": "comment",
+        "z": "15e6cb2049d0df7a",
+        "name": "Passadeira 0",
+        "info": "",
+        "x": 90,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "75a0fc980e91ccc6",
+        "type": "comment",
+        "z": "15e6cb2049d0df7a",
+        "name": "Poste 0",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5279643940e5cc9d",
+        "type": "comment",
+        "z": "15e6cb2049d0df7a",
+        "name": "Poste 1",
+        "info": "",
+        "x": 130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "27e541ebe53027a3",
+        "type": "debug",
+        "z": "15e6cb2049d0df7a",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b48553ece2d29610",
+        "type": "http request",
+        "z": "15e6cb2049d0df7a",
+        "name": "Provisionar sensor",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://iot-agent:49160/iot/devices",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-service",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "fiware-servicepath",
+                "valueType": "other",
+                "valueValue": "/"
+            }
+        ],
+        "x": 930,
+        "y": 400,
+        "wires": [
+            [
+                "27e541ebe53027a3"
+            ]
+        ]
+    },
+    {
+        "id": "9160c3fa04a675b6",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_V\",\"entity_name\":\"urn:ngsi-ld:VehicleSensor:IPB_BGC_0000000_0_V\",\"entity_type\":\"VehicleSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"intensity\",\"type\":\"Property\"},{\"object_id\":\"a\",\"name\":\"averageSpeed\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}},{\"object_id\":\"l\",\"name\":\"speedMin\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}},{\"object_id\":\"h\",\"name\":\"speedMax\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"},{\"name\":\"itemType\",\"type\":\"Property\",\"value\":\"vehicle\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "bcdcb86cc9f77295",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_A\",\"entity_name\":\"urn:ngsi-ld:AccidentSensor:IPB_BGC_0000000_0_A\",\"entity_type\":\"AccidentSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"d\",\"name\":\"accidentDate\",\"type\":\"Property\"},{\"object_id\":\"t\",\"name\":\"accidentType\",\"type\":\"Property\"},{\"object_id\":\"s\",\"name\":\"status\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "dcbedfcc47a3911c",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_B\",\"entity_name\":\"urn:ngsi-ld:BatteryMeasurement:IPB_BGC_0000000_0_B\",\"entity_type\":\"BatteryMeasurement\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"t\",\"name\":\"temperature\",\"type\":\"Property\"},{\"object_id\":\"c\",\"name\":\"stateOfCharge\",\"type\":\"Property\"},{\"object_id\":\"h\",\"name\":\"stateOfHealth\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refStorageBatteryDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_0_BM\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "0fb7c68ac028c4fe",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_0_P\",\"entity_name\":\"urn:ngsi-ld:PedestrianSensor:IPB_BGC_0000000_0_P\",\"entity_type\":\"PedestrianSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"intensity\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_0\"},{\"name\":\"itemType\",\"type\":\"Property\",\"value\":\"people\"}]}]}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "344c57b8e944a5ec",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_THP\",\"entity_name\":\"urn:ngsi-ld:TemperatureHumidityPressureSensor:IPB_BGC_0000000_1_THP\",\"entity_type\":\"TemperatureHumidityPressureSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"t\",\"name\":\"temperature\",\"type\":\"Property\"},{\"object_id\":\"h\",\"name\":\"relativeHumidity\",\"type\":\"Property\"},{\"object_id\":\"p\",\"name\":\"atmosphericPressure\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"}]}]}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "b7dea3666e7d368a",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_I\",\"entity_name\":\"urn:ngsi-ld:BrightnessSensor:IPB_BGC_0000000_1_I\",\"entity_type\":\"BrightnessSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"illuminance\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"}]}]}",
+        "payloadType": "json",
+        "x": 220,
+        "y": 440,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "0e5cdf7986e85905",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_V\",\"entity_name\":\"urn:ngsi-ld:VehicleSensor:IPB_BGC_0000000_1_V\",\"entity_type\":\"VehicleSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"intensity\",\"type\":\"Property\"},{\"object_id\":\"a\",\"name\":\"averageSpeed\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}},{\"object_id\":\"l\",\"name\":\"speedMin\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}},{\"object_id\":\"h\",\"name\":\"speedMax\",\"type\":\"Property\",\"metadata\":{\"unitCode\":{\"type\":\"Text\",\"value\":\"KMH\"}}}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"},{\"name\":\"itemType\",\"type\":\"Property\",\"value\":\"vehicle\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 480,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "b5654f9b7676c5d9",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_A\",\"entity_name\":\"urn:ngsi-ld:AccidentSensor:IPB_BGC_0000000_1_A\",\"entity_type\":\"AccidentSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"d\",\"name\":\"accidentDate\",\"type\":\"Property\"},{\"object_id\":\"t\",\"name\":\"accidentType\",\"type\":\"Property\"},{\"object_id\":\"s\",\"name\":\"status\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "5429e987f79315db",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_B\",\"entity_name\":\"urn:ngsi-ld:BatteryMeasurement:IPB_BGC_0000000_1_B\",\"entity_type\":\"BatteryMeasurement\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"t\",\"name\":\"temperature\",\"type\":\"Property\"},{\"object_id\":\"c\",\"name\":\"stateOfCharge\",\"type\":\"Property\"},{\"object_id\":\"h\",\"name\":\"stateOfHealth\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refStorageBatteryDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_1_BM\"}]}]}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 600,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "6b9867e4089b7c94",
+        "type": "inject",
+        "z": "15e6cb2049d0df7a",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "{\"devices\":[{\"device_id\":\"IPB_BGC_0000000_1_P\",\"entity_name\":\"urn:ngsi-ld:PedestrianSensor:IPB_BGC_0000000_1_P\",\"entity_type\":\"PedestrianSensor\",\"protocol\":\"PDI-IoTA-JSON\",\"transport\":\"MQTT\",\"attributes\":[{\"object_id\":\"i\",\"name\":\"intensity\",\"type\":\"Property\"}],\"static_attributes\":[{\"name\":\"refDevice\",\"type\":\"Relationship\",\"value\":\"urn:ngsi-ld:Pole:IPB_BGC_0000000_1\"},{\"name\":\"itemType\",\"type\":\"Property\",\"value\":\"people\"}]}]}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "b48553ece2d29610"
+            ]
+        ]
+    },
+    {
+        "id": "b03bd3f603b5ce30",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor de temperatura, humidade e pressão atmosférica\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"TemperatureHumidityPressureSensor\"}],\"watchedAttributes\":[\"temperature\",\"relativeHumidity\",\"atmosphericPressure\"],\"notification\":{\"attributes\":[\"temperature\",\"relativeHumidity\",\"atmosphericPressure\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "47ec093d450b9029",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Dados temporais - QuantumLeap",
+        "info": "",
+        "x": 150,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ed9b099f3341064f",
+        "type": "debug",
+        "z": "5543de58dc0e4c18",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a7f9b8a2f6ea1363",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Atuadores",
+        "info": "",
+        "x": 140,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bacee0896709460d",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Sensores",
+        "info": "",
+        "x": 140,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "25179f36ac42c046",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - poste\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Pole\"}],\"watchedAttributes\":[\"deviceState\"],\"notification\":{\"attributes\":[\"deviceState\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "64853634686659ca",
+        "type": "http request",
+        "z": "5543de58dc0e4c18",
+        "name": "Criar subscrição",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/subscriptions/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/ld+json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 980,
+        "y": 200,
+        "wires": [
+            [
+                "ed9b099f3341064f"
+            ]
+        ]
+    },
+    {
+        "id": "0e739f83f31fc6b1",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Atualização do contexto",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "067e5fb9e5a2c4e4",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Atuadores",
+        "info": "",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f4caa6dc26597b0d",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Atualização do contexto - poste\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Pole\"}],\"watchedAttributes\":[\"on_info\"],\"notification\":{\"attributes\":[\"on_info\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/context-update/pole/on\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "64853634686659ca"
+            ]
+        ]
+    },
+    {
+        "id": "c87bdecd2544a76f",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Atualização do contexto - luminária\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Luminaire\"}],\"watchedAttributes\":[\"on_info\"],\"notification\":{\"attributes\":[\"on_info\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/context-update/luminaire/on\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "64853634686659ca"
+            ]
+        ]
+    },
+    {
+        "id": "42b3e070b1053772",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Ligar",
+        "info": "",
+        "x": 190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9c62ee6682b94e2d",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Atualização do contexto - poste\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Pole\"}],\"watchedAttributes\":[\"off_info\"],\"notification\":{\"attributes\":[\"off_info\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/context-update/pole/off\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "64853634686659ca"
+            ]
+        ]
+    },
+    {
+        "id": "2713d32a7fe00ae4",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Atualização do contexto - luminária\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Luminaire\"}],\"watchedAttributes\":[\"off_info\"],\"notification\":{\"attributes\":[\"off_info\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/context-update/luminaire/off\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "64853634686659ca"
+            ]
+        ]
+    },
+    {
+        "id": "b4d6d07945d127bd",
+        "type": "comment",
+        "z": "5543de58dc0e4c18",
+        "name": "Desligar",
+        "info": "",
+        "x": 200,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3fa2f3c783f580b6",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - luminária\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Luminaire\"}],\"watchedAttributes\":[\"powerState\"],\"notification\":{\"attributes\":[\"powerState\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "69ea9b115eb72c25",
+        "type": "http request",
+        "z": "5543de58dc0e4c18",
+        "name": "Criar subscrição",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/subscriptions/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/ld+json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 980,
+        "y": 560,
+        "wires": [
+            [
+                "ed9b099f3341064f"
+            ]
+        ]
+    },
+    {
+        "id": "610644866c0feb50",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor de luminosidade\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BrightnessSensor\"}],\"watchedAttributes\":[\"illuminance\"],\"notification\":{\"attributes\":[\"illuminance\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "059a8a3f0db8120d",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor de veículos\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"VehicleSensor\"}],\"watchedAttributes\":[\"intensity\"],\"notification\":{\"attributes\":[\"intensity\",\"averageSpeed\",\"speedMin\",\"speedMax\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 640,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "c43a096e28478a0f",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor de pedestres\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"PedestrianSensor\"}],\"watchedAttributes\":[\"intensity\"],\"notification\":{\"attributes\":[\"intensity\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 680,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "3ef595f78cae7837",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor de pedestres\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"AccidentSensor\"}],\"watchedAttributes\":[\"accidentType\"],\"notification\":{\"attributes\":[\"accidentDate\",\"accidentType\",\"status\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 720,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "c8b164e1862a1cd7",
+        "type": "inject",
+        "z": "5543de58dc0e4c18",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Dados temporais | QuantumLeap - sensor da bateria\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BatteryMeasurement\"}],\"watchedAttributes\":[\"stateOfCharge\"],\"notification\":{\"attributes\":[\"temperature\",\"stateOfCharge\",\"stateOfHealth\"],\"format\":\"normalized\",\"endpoint\":{\"uri\":\"http://quantumleap:8668/v2/notify\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "69ea9b115eb72c25"
+            ]
+        ]
+    },
+    {
+        "id": "4ab42f3e9bf6e080",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor de temperatura, humidade e pressão atmosférica\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"TemperatureHumidityPressureSensor\"}],\"watchedAttributes\":[\"temperature\",\"relativeHumidity\",\"atmosphericPressure\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "4635450bef8a6031",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Poste 0",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "80569a737ab1a4db",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Refresh aplicação Web",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e6e2ce819025de14",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Poste 1",
+        "info": "",
+        "x": 130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a9cd2e946da0f692",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Atuadores",
+        "info": "",
+        "x": 200,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "afac21d6dc3cf0dc",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Sensores",
+        "info": "",
+        "x": 200,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ccd55d64bc2184ff",
+        "type": "http request",
+        "z": "b00ffc16ab38afc6",
+        "name": "Criar subscrição",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/subscriptions/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/ld+json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 980,
+        "y": 720,
+        "wires": [
+            [
+                "af79309852a640b3"
+            ]
+        ]
+    },
+    {
+        "id": "2eb41c7abb31b2bd",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - poste\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Pole\"}],\"watchedAttributes\":[\"deviceState\"],\"q\":\"controlledAsset == %22urn:ngsi-ld:Crosswalk:IPB_BGC_0000000%22\",\"notification\":{\"attributes\":[\"deviceState\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "5c4978fcf465761c",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - luminária\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Luminaire\"}],\"watchedAttributes\":[\"powerState\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[\"powerState\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "87756fb4f40b5c73",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Atuadores",
+        "info": "",
+        "x": 200,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ef80be4f79e56e38",
+        "type": "comment",
+        "z": "b00ffc16ab38afc6",
+        "name": "Sensores",
+        "info": "",
+        "x": 200,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e3e19c05c7bd4690",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Poste",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - poste\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Pole\"}],\"watchedAttributes\":[\"deviceState\"],\"q\":\"controlledAsset == %22urn:ngsi-ld:Crosswalk:IPB_BGC_0000000%22\",\"notification\":{\"attributes\":[\"deviceState\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "73ee144848029850",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Luminária",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - luminária\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"Luminaire\"}],\"watchedAttributes\":[\"powerState\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[\"powerState\"],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 640,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "06927fc8ded3076a",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor de luminosidade\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BrightnessSensor\"}],\"watchedAttributes\":[\"illuminance\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 270,
+        "y": 320,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "0318e250cb0662cd",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor de veículos\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"VehicleSensor\"}],\"watchedAttributes\":[\"intensity\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 360,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "7a3ff0bcbfc22c53",
+        "type": "http request",
+        "z": "b00ffc16ab38afc6",
+        "name": "Criar subscrição",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/subscriptions/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/ld+json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 980,
+        "y": 280,
+        "wires": [
+            [
+                "af79309852a640b3"
+            ]
+        ]
+    },
+    {
+        "id": "807c1389e1203cb8",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor de pedestres\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"PedestrianSensor\"}],\"watchedAttributes\":[\"intensity\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "609215ceaf719c7a",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor de acidentes\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"AccidentSensor\"}],\"watchedAttributes\":[\"accidentType\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_0%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 440,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "10387e1d73441d99",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_0 - sensor da bateria\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BatteryMeasurement\"}],\"watchedAttributes\":[\"stateOfCharge\"],\"q\":\"refStorageBatteryDevice == %22urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_0_BM%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_0\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "7a3ff0bcbfc22c53"
+            ]
+        ]
+    },
+    {
+        "id": "12e9b9e630bee0df",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor de temperatura, humidade e pressão atmosférica\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"TemperatureHumidityPressureSensor\"}],\"watchedAttributes\":[\"temperature\",\"relativeHumidity\",\"atmosphericPressure\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 370,
+        "y": 720,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "bdacd0ced27071b1",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor de luminosidade\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BrightnessSensor\"}],\"watchedAttributes\":[\"illuminance\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 270,
+        "y": 760,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "d1083e5ec17613e9",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor de veículos\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"VehicleSensor\"}],\"watchedAttributes\":[\"intensity\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 800,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "891cf31823b4c595",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor de pedestres\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"PedestrianSensor\"}],\"watchedAttributes\":[\"intensity\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 840,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "f02bc826d557a45c",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor de acidentes\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"AccidentSensor\"}],\"watchedAttributes\":[\"accidentType\"],\"q\":\"refDevice == %22urn:ngsi-ld:Pole:IPB_BGC_0000000_1%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 260,
+        "y": 880,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "f1762428b55ed29a",
+        "type": "inject",
+        "z": "b00ffc16ab38afc6",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "15",
+        "topic": "",
+        "payload": "{\"description\":\"Refresh aplicação Web | Poste IPB_BGC_0000000_1 - sensor da bateria\",\"type\":\"Subscription\",\"entities\":[{\"type\":\"BatteryMeasurement\"}],\"watchedAttributes\":[\"stateOfCharge\"],\"q\":\"refStorageBatteryDevice == %22urn:ngsi-ld:BatteryModel:IPB_BGC_0000000_1_BM%22\",\"notification\":{\"attributes\":[],\"format\":\"keyValues\",\"endpoint\":{\"uri\":\"http://aplicacao-web-backend:49153/subscriptions/Pole/IPB_BGC_0000000_1\",\"accept\":\"application/json\"}},\"@context\":\"http://reverse-proxy/data-model/context-files/context-ngsi.jsonld\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 920,
+        "wires": [
+            [
+                "ccd55d64bc2184ff"
+            ]
+        ]
+    },
+    {
+        "id": "af79309852a640b3",
+        "type": "debug",
+        "z": "b00ffc16ab38afc6",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "32fc1fa61e2d001d",
+        "type": "mqtt out",
+        "z": "f3c28d049ebb6fce",
+        "name": "Corretor MQTT",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1180,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "25f289b408a0c1b4",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/2xkob7uuwbu1g3el07ut/IPB_BGC_0000000_0_THP/attrs",
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "9b36508fd43c52f7"
+            ]
+        ]
+    },
+    {
+        "id": "9b36508fd43c52f7",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medições fictícias",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=`{\"t\": ${getRandomFloat(24,30,1)}, \"h\": ${getRandomFloat(30,100,1)}, \"p\": ${getRandomFloat(950,1050,1)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 120,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "69558611ad305246",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload = `{\"t\": ${getRandomFloat(0, 60, 0)}, \"c\": ${getRandomFloat(10, 100, 0)}, \"h\": ${getRandomFloat(30, 100, 0)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 320,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "c2abe9761df85dd4",
+        "type": "comment",
+        "z": "f3c28d049ebb6fce",
+        "name": "Passadeira 0",
+        "info": "",
+        "x": 90,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6802694d2f08eb33",
+        "type": "comment",
+        "z": "f3c28d049ebb6fce",
+        "name": "Poste 0",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "10f08612952b776d",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/a8obddvi6hg6yxnyqozr/IPB_BGC_0000000_0_I/attrs/i",
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "563648fb322aa76c"
+            ]
+        ]
+    },
+    {
+        "id": "563648fb322aa76c",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=getRandomFloat(0,20000,0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "790f4c6472c44792",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload = `{\"i\": ${getRandomFloat(0, 300, 0)}, \"a\": ${getRandomFloat(0, 80, 1)}, \"l\": ${getRandomFloat(0, 30, 1)}, \"h\": ${getRandomFloat(30,80,1)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "3e4b09519f507d02",
+        "type": "comment",
+        "z": "f3c28d049ebb6fce",
+        "name": "Poste 1",
+        "info": "",
+        "x": 130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "524c53a7cad914b5",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/wmnshtp4yfjysxs62oju/IPB_BGC_0000000_0_V/attrs",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "790f4c6472c44792"
+            ]
+        ]
+    },
+    {
+        "id": "78c781bab4a60e20",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/uulknx3258cn9jzz8eyq/IPB_BGC_0000000_0_P/attrs/i",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "d87f2ca16c917e84"
+            ]
+        ]
+    },
+    {
+        "id": "8d6544ddd8ca5ba4",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/kc97hptjl7o3r42w7euq/IPB_BGC_0000000_0_A/attrs",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "35dd821bf18919af"
+            ]
+        ]
+    },
+    {
+        "id": "2c627420f2bae4ad",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/8g52ph9sl1rtsu1osnwa/IPB_BGC_0000000_0_B/attrs",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "69558611ad305246"
+            ]
+        ]
+    },
+    {
+        "id": "d87f2ca16c917e84",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=getRandomFloat(0,300,0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 240,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "35dd821bf18919af",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "msg.payload = `{\"d\": \"2023-06-01T14:00:00Z\", \"t\": 8, \"s\": \"onGoing\"}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "64b99e1eb790f5a8",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Temperatura, humidade e pressão atmosférica",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/2xkob7uuwbu1g3el07ut/IPB_BGC_0000000_1_THP/attrs",
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "b339f6c31b6d328c"
+            ]
+        ]
+    },
+    {
+        "id": "b339f6c31b6d328c",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medições fictícias",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=`{\"t\": ${getRandomFloat(24,30,1)}, \"h\": ${getRandomFloat(30,100,1)}, \"p\": ${getRandomFloat(950,1050,1)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "7699756240a0b6aa",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload = `{\"t\": ${getRandomFloat(0, 60, 0)}, \"c\": ${getRandomFloat(10, 100, 0)}, \"h\": ${getRandomFloat(30, 100, 0)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 600,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "9808a8157b6767a4",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Luminosidade",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/a8obddvi6hg6yxnyqozr/IPB_BGC_0000000_1_I/attrs/i",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "b21325c5099e052d"
+            ]
+        ]
+    },
+    {
+        "id": "b21325c5099e052d",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=getRandomFloat(0,20000,0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "775a575751c43843",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload = `{\"i\": ${getRandomFloat(0, 300, 0)}, \"a\": ${getRandomFloat(0, 80, 1)}, \"l\": ${getRandomFloat(0, 30, 1)}, \"h\": ${getRandomFloat(30,80,1)}}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 480,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "ad84fb210d06b993",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Veículos",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/wmnshtp4yfjysxs62oju/IPB_BGC_0000000_1_V/attrs",
+        "x": 200,
+        "y": 480,
+        "wires": [
+            [
+                "775a575751c43843"
+            ]
+        ]
+    },
+    {
+        "id": "7d6eb92f6063f017",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Pedestres",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/uulknx3258cn9jzz8eyq/IPB_BGC_0000000_1_P/attrs/i",
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "92637e4aec4cad4b"
+            ]
+        ]
+    },
+    {
+        "id": "2e4f84a319d186f6",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Acidentes",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/kc97hptjl7o3r42w7euq/IPB_BGC_0000000_1_A/attrs",
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "750f218f1d3590e0"
+            ]
+        ]
+    },
+    {
+        "id": "1769ef8a04f2c15c",
+        "type": "inject",
+        "z": "f3c28d049ebb6fce",
+        "name": "Bateria",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "/json/8g52ph9sl1rtsu1osnwa/IPB_BGC_0000000_1_B/attrs",
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "7699756240a0b6aa"
+            ]
+        ]
+    },
+    {
+        "id": "92637e4aec4cad4b",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "function getRandomFloat(min, max, decimals) {\n  return (Math.random() * (max - min) + min).toFixed(decimals);\n}\n\nmsg.payload=getRandomFloat(0,300,0);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "750f218f1d3590e0",
+        "type": "function",
+        "z": "f3c28d049ebb6fce",
+        "name": "Medição fictícia",
+        "func": "msg.payload = `{\"d\": \"2023-06-01T14:00:00Z\", \"t\": 8, \"s\": \"onGoing\"}`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 560,
+        "wires": [
+            [
+                "32fc1fa61e2d001d"
+            ]
+        ]
+    },
+    {
+        "id": "7cfdd26e0d57b647",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Ligar Poste",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "700df002b677fac3"
+            ]
+        ]
+    },
+    {
+        "id": "700df002b677fac3",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Pole:IPB_BGC_0000000_0/attrs/on",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "8dda035af5096bbe",
+                "35068205503a4094"
+            ]
+        ]
+    },
+    {
+        "id": "f970c89a6ad547da",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/h2f7cj79yre2teuin8fn/IPB_BGC_0000000_0/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1010,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8dda035af5096bbe",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "d84db7386cc369d1"
+            ]
+        ]
+    },
+    {
+        "id": "d84db7386cc369d1",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"on\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 80,
+        "wires": [
+            [
+                "f970c89a6ad547da"
+            ]
+        ]
+    },
+    {
+        "id": "d316dfdddbba793e",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Ligar Luminária",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "e2e4bcc8d59dc0d1"
+            ]
+        ]
+    },
+    {
+        "id": "e2e4bcc8d59dc0d1",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Luminaire:IPB_BGC_0000000_0_Luminaire/attrs/on",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 400,
+        "y": 240,
+        "wires": [
+            [
+                "ccc389236596cea2",
+                "35068205503a4094"
+            ]
+        ]
+    },
+    {
+        "id": "8bc37d551789cce4",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/soyz7ioc63kpg4qmah3e/IPB_BGC_0000000_0_Luminaire/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1070,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4fc90dd60892ab16",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"on\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "8bc37d551789cce4"
+            ]
+        ]
+    },
+    {
+        "id": "ccc389236596cea2",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "4fc90dd60892ab16"
+            ]
+        ]
+    },
+    {
+        "id": "312d2c44c7f673bd",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Desligar Poste",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "7aafbbcb088d2b45"
+            ]
+        ]
+    },
+    {
+        "id": "7aafbbcb088d2b45",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Pole:IPB_BGC_0000000_0/attrs/off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 360,
+        "y": 320,
+        "wires": [
+            [
+                "30b4b177c9bf2534",
+                "557f975c9fc63ec7"
+            ]
+        ]
+    },
+    {
+        "id": "637b168b6343fc73",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/h2f7cj79yre2teuin8fn/IPB_BGC_0000000_0/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1030,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "30b4b177c9bf2534",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "72219c061b8fc967"
+            ]
+        ]
+    },
+    {
+        "id": "72219c061b8fc967",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"off\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 320,
+        "wires": [
+            [
+                "637b168b6343fc73"
+            ]
+        ]
+    },
+    {
+        "id": "82acdf0f7c81946c",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Desligar Luminária",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "973b2b4445637215"
+            ]
+        ]
+    },
+    {
+        "id": "973b2b4445637215",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Luminaire:IPB_BGC_0000000_0_Luminaire/attrs/off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "IPB_BGC_0000000"
+            }
+        ],
+        "x": 420,
+        "y": 440,
+        "wires": [
+            [
+                "bb19fd20702c013a",
+                "557f975c9fc63ec7"
+            ]
+        ]
+    },
+    {
+        "id": "1474eb9f61a05c99",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/soyz7ioc63kpg4qmah3e/IPB_BGC_0000000_0_Luminaire/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1090,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a4cf14c0fd87705e",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"off\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 440,
+        "wires": [
+            [
+                "1474eb9f61a05c99"
+            ]
+        ]
+    },
+    {
+        "id": "bb19fd20702c013a",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "a4cf14c0fd87705e"
+            ]
+        ]
+    },
+    {
+        "id": "f2f9adcf7f740dab",
+        "type": "comment",
+        "z": "d1b868433c3dfac5",
+        "name": "Poste 0",
+        "info": "",
+        "x": 70,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "60b8174f6903e4fa",
+        "type": "comment",
+        "z": "d1b868433c3dfac5",
+        "name": "Poste 1",
+        "info": "",
+        "x": 70,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "35068205503a4094",
+        "type": "debug",
+        "z": "d1b868433c3dfac5",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "557f975c9fc63ec7",
+        "type": "debug",
+        "z": "d1b868433c3dfac5",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "20ee8e781ecbb0dd",
+        "type": "mqtt in",
+        "z": "d1b868433c3dfac5",
+        "name": "Todos os tópicos",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a6769c33969e2be6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "35068205503a4094"
+            ]
+        ]
+    },
+    {
+        "id": "812ba05c2441d801",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Ligar Poste",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "64befa6881feb861"
+            ]
+        ]
+    },
+    {
+        "id": "64befa6881feb861",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Pole:IPB_BGC_0000000_1/attrs/on",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [
+                "0c580aa80f07903a",
+                "6bd1525a455a6b43"
+            ]
+        ]
+    },
+    {
+        "id": "b57fa200d4e755b9",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/h2f7cj79yre2teuin8fn/IPB_BGC_0000000_1/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1010,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0c580aa80f07903a",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 540,
+        "wires": [
+            [
+                "8048d890e0cf1439"
+            ]
+        ]
+    },
+    {
+        "id": "8048d890e0cf1439",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"on\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "b57fa200d4e755b9"
+            ]
+        ]
+    },
+    {
+        "id": "2b5904247f9b01cd",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Ligar Luminária",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 660,
+        "wires": [
+            [
+                "2b02baab09cde116"
+            ]
+        ]
+    },
+    {
+        "id": "2b02baab09cde116",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Luminaire:IPB_BGC_0000000_1_Luminaire/attrs/on",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 400,
+        "y": 660,
+        "wires": [
+            [
+                "833bb6ed6ad262c6",
+                "6bd1525a455a6b43"
+            ]
+        ]
+    },
+    {
+        "id": "1f3a38bca754154f",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/soyz7ioc63kpg4qmah3e/IPB_BGC_0000000_1_Luminaire/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1070,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "faa00564713c1382",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"on\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 660,
+        "wires": [
+            [
+                "1f3a38bca754154f"
+            ]
+        ]
+    },
+    {
+        "id": "833bb6ed6ad262c6",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 660,
+        "wires": [
+            [
+                "faa00564713c1382"
+            ]
+        ]
+    },
+    {
+        "id": "662bce8935261985",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Desligar Poste",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "1d8c41ef7e9ba2e8"
+            ]
+        ]
+    },
+    {
+        "id": "1d8c41ef7e9ba2e8",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Pole:IPB_BGC_0000000_1/attrs/off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "VALLPASS"
+            }
+        ],
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "7e5cd84745aa3edb",
+                "c8168cae1f41d6e4"
+            ]
+        ]
+    },
+    {
+        "id": "86334c08431acf65",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/h2f7cj79yre2teuin8fn/IPB_BGC_0000000_1/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1030,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7e5cd84745aa3edb",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 740,
+        "wires": [
+            [
+                "1e856ba1292b67a8"
+            ]
+        ]
+    },
+    {
+        "id": "1e856ba1292b67a8",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"off\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 740,
+        "wires": [
+            [
+                "86334c08431acf65"
+            ]
+        ]
+    },
+    {
+        "id": "8186cebb0e61d600",
+        "type": "inject",
+        "z": "d1b868433c3dfac5",
+        "name": "Desligar Luminária",
+        "props": [
+            {
+                "p": "method",
+                "v": "PATCH",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "20",
+        "topic": "",
+        "payload": "{\"type\":\"Property\",\"value\":\"\"}",
+        "payloadType": "json",
+        "x": 210,
+        "y": 860,
+        "wires": [
+            [
+                "2206a415ef066d94"
+            ]
+        ]
+    },
+    {
+        "id": "2206a415ef066d94",
+        "type": "http request",
+        "z": "d1b868433c3dfac5",
+        "name": "Pedido HTTP",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://orion:1026/ngsi-ld/v1/entities/urn:ngsi-ld:Luminaire:IPB_BGC_0000000_1_Luminaire/attrs/off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "NGSILD-Tenant",
+                "valueType": "other",
+                "valueValue": "IPB_BGC_0000000"
+            }
+        ],
+        "x": 420,
+        "y": 860,
+        "wires": [
+            [
+                "5b3a63c96175fb5c",
+                "c8168cae1f41d6e4"
+            ]
+        ]
+    },
+    {
+        "id": "cd27cbd83a25f311",
+        "type": "mqtt out",
+        "z": "d1b868433c3dfac5",
+        "name": "Tópico de confirmação",
+        "topic": "/json/soyz7ioc63kpg4qmah3e/IPB_BGC_0000000_1_Luminaire/cmdexe",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a6769c33969e2be6",
+        "x": 1090,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "103d5612e671df30",
+        "type": "function",
+        "z": "d1b868433c3dfac5",
+        "name": "Mensagem de confirmação",
+        "func": "msg.payload='{\"off\": \"OK\"}';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 860,
+        "wires": [
+            [
+                "cd27cbd83a25f311"
+            ]
+        ]
+    },
+    {
+        "id": "5b3a63c96175fb5c",
+        "type": "delay",
+        "z": "d1b868433c3dfac5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 860,
+        "wires": [
+            [
+                "103d5612e671df30"
+            ]
+        ]
+    },
+    {
+        "id": "6bd1525a455a6b43",
+        "type": "debug",
+        "z": "d1b868433c3dfac5",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c8168cae1f41d6e4",
+        "type": "debug",
+        "z": "d1b868433c3dfac5",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 800,
+        "wires": []
+    }
+]

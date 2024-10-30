@@ -1,0 +1,294 @@
+services:
+        reverse-proxy:
+                image: nginx:stable-bullseye
+                hostname: reverse-proxy
+                ports:
+                        - "80:80"
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.10
+                volumes:
+                        - ./VolumesDocker/NGINX:/etc/nginx
+                        - ./DataModel:/srv/data-model
+                        - ./AplicacaoWeb/Frontend/build:/srv/management
+        aplicacao-web-frontend:
+                image: node:16
+                hostname: aplicacao-web-frontend
+                working_dir: /home/node/app
+                volumes:
+                        - ./AplicacaoWeb/Frontend/:/home/node/app
+                expose:
+                        - 49152
+                ports:
+                        - "49152:49152"
+                command: sh -c "npm install && npm run build"
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.20
+        aplicacao-web-backend:
+                image: node:lts-alpine
+                hostname: aplicacao-web-backend
+                working_dir: /home/node/app
+                volumes:
+                        - ./AplicacaoWeb/Backend/:/home/node/app
+                expose:
+                        - 49153
+                command: sh -c "npm install; node index.js"
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.30
+        nominatim:
+                image: mediagis/nominatim:4.2
+                hostname: nominatim
+                expose:
+                        - 8080
+                environment:
+                        - PBF_URL=https://download.geofabrik.de/europe/portugal-latest.osm.pbf
+                        - REPLICATION_URL=https://download.geofabrik.de/europe/portugal-updates/
+                        - IMPORT_STYLE=street
+                volumes:
+                        - Nominatim:/var/lib/postgresql/14/main
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.40
+                shm_size: 128m
+        keyrock:
+                image: fiware/idm:8.0.0
+                hostname: keyrock
+                depends_on:
+                        - mysql-db
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.50
+                ports:
+                        - "49155:49155"
+                expose:
+                        - 49155
+                environment:
+                        - "IDM_DB_HOST=mysql-db"
+                        - "IDM_HOST=http://localhost:49155"
+                        - "IDM_PORT=49155"
+                        - "IDM_DB_USER_FILE=/run/secrets/db_user"
+                        - "IDM_DB_PASS_FILE=/run/secrets/db_pass"
+                        - "IDM_ADMIN_USER_FILE=/run/secrets/idm_admin_user"
+                        - "IDM_ADMIN_PASS_FILE=/run/secrets/idm_admin_pass"
+                        - "IDM_ADMIN_EMAIL_FILE=/run/secrets/idm_admin_email"
+                        - "IDM_CORS_ENABLED=true"
+                        - "IDM_CORS_ORIGIN=*"
+                secrets:
+                        - db_user
+                        - db_pass
+                        - idm_admin_user
+                        - idm_admin_pass
+                        - idm_admin_email
+        mysql-db:
+                restart: always
+                image: mysql:5.7
+                hostname: mysql-db
+                expose:
+                        - 3306
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.60
+                environment:
+                        - "MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_pass"
+                        - "MYSQL_ROOT_HOST=172.30.3.50"
+                volumes:
+                        - ./VolumesDocker/MySQL:/var/lib/mysql
+                secrets:
+                        - db_pass
+        orion-proxy:
+                image: fiware/pep-proxy:8.0.0
+                hostname: orion-proxy
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.70
+                depends_on:
+                        - keyrock
+                ports:
+                        - "49156:1027"
+                expose:
+                        - 1027
+                environment:
+                        - PEP_PROXY_APP_HOST=orion
+                        - PEP_PROXY_APP_PORT=1026
+                        - PEP_PROXY_PORT=1027
+                        - PEP_PROXY_IDM_HOST=keyrock
+                        - PEP_PROXY_HTTPS_ENABLED=false
+                        - PEP_PROXY_AUTH_ENABLED=false
+                        - PEP_PROXY_IDM_SSL_ENABLED=false
+                        - PEP_PROXY_IDM_PORT=49155
+                        - PEP_PROXY_APP_ID=79a9c4f2-2b75-4452-ad73-f6a9949b8acd
+                        - PEP_PROXY_USERNAME=pep_proxy_2a78baa5-169b-4978-84a3-0452d8c6482e
+                        - PEP_PASSWORD_FILE=/run/secrets/orion_proxy_password
+                        - PEP_PROXY_PDP=idm
+                        - PEP_PROXY_MAGIC_KEY=BOGHCTBczzSWUH6Phaes
+                secrets:
+                        - orion_proxy_password
+        orion:
+                image: fiware/orion-ld:1.2.1
+                hostname: orion
+                depends_on:
+                        mongo-db:
+                                condition: service_started
+                        reverse-proxy:
+                                condition: service_started
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.80
+                expose:
+                        - 1026
+                command: -dbhost mongo-db -logLevel DEBUG -forwarding
+        mongo-db:
+                image: mongo:4.4
+                hostname: mongo-db
+                expose:
+                        - 27017
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.90
+                volumes:
+                        - ./VolumesDocker/MongoDB:/data
+                command: --nojournal
+        quantumleap:
+                image: orchestracities/quantumleap:0.8.3
+                hostname: quantumleap
+                expose:
+                        - 8668
+                depends_on:
+                        - crate-db
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.100
+                environment:
+                        - CRATE_HOST=crate-db
+        crate-db:
+                image: crate:4.6.7
+                hostname: crate-db
+                ports:
+                        - "49158:4200"
+                expose:
+                        - 4200
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.110
+                command: crate -Cauth.host_based.enabled=false -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
+                environment:
+                        - CRATE_HEAP_SIZE=2g
+                volumes:
+                        - ./VolumesDocker/CrateDB:/data
+        iot-agent-proxy:
+                image: fiware/pep-proxy:8.0.0
+                hostname: iot-agent-proxy
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.120
+                depends_on:
+                        - keyrock
+                ports:
+                        - "49159:49159"
+                expose:
+                        - 49159
+                environment:
+                        - PEP_PROXY_APP_HOST=orion
+                        - PEP_PROXY_APP_PORT=49160
+                        - PEP_PROXY_PORT=49159
+                        - PEP_PROXY_IDM_HOST=keyrock
+                        - PEP_PROXY_HTTPS_ENABLED=false
+                        - PEP_PROXY_AUTH_ENABLED=false
+                        - PEP_PROXY_IDM_SSL_ENABLED=false
+                        - PEP_PROXY_IDM_PORT=49155
+                        - PEP_PROXY_APP_ID=b1334d44-0e83-40a1-8de5-496a55aeec36
+                        - PEP_PROXY_USERNAME=pep_proxy_4b895afa-4010-4fd3-8037-044685374faa
+                        - PEP_PASSWORD_FILE=/run/secrets/iot_agent_proxy_password
+                        - PEP_PROXY_PDP=idm
+                        - PEP_PROXY_MAGIC_KEY=BOGHCTBczzSWUH6Phaes
+        iot-agent:
+                image: quay.io/fiware/iotagent-json:2.0.0-distroless
+                hostname: iot-agent
+                depends_on:
+                        - mongo-db
+                        - orion
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.130
+                expose:
+                        - 49160
+                environment:
+                        - IOTA_CB_HOST=orion
+                        - IOTA_CB_PORT=1026
+                        - IOTA_NORTH_PORT=49160
+                        - IOTA_REGISTRY_TYPE=mongodb
+                        - IOTA_LOG_LEVEL=ERROR
+                        - IOTA_TIMESTAMP=true
+                        - IOTA_CB_NGSI_VERSION=ld
+                        - IOTA_AUTOCAST=true
+                        - IOTA_MONGO_HOST=mongo-db
+                        - IOTA_MONGO_PORT=27017
+                        - IOTA_MONGO_DB=iotagentjson
+                        - IOTA_PROVIDER_URL=http://iot-agent:49160
+                        - IOTA_JSON_LD_CONTEXT=http://reverse-proxy/data-model/context-files/context-ngsi.jsonld
+                        - IOTA_MQTT_HOST=eclipse-mosquitto
+                        - IOTA_MQTT_PORT=1883
+                        - IOTA_MQTT_USERNAME=user
+                        - IOTA_MQTT_PASSWORD=0qKR1tzjoTquJu7xx5IM
+                        - IOTA_DEFAULT_RESOURCE=/iot/json
+        mosquitto:
+                image: eclipse-mosquitto:2.0.15
+                hostname: eclipse-mosquitto
+                ports:
+                        - "49161:1883"
+                expose:
+                        - 1883
+                volumes:
+                        - ./VolumesDocker/MosquittoConfig:/mosquitto/config
+                        - ./VolumesDocker/MosquittoData:/mosquitto/data
+                        - ./VolumesDocker/MosquittoLogs:/mosquitto/log
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.140
+        node-red:
+                image: nodered/node-red:3.0.2-minimal
+                ports:
+                        - "49162:1880"
+                depends_on:
+                        orion:
+                                condition: service_started
+                        iot-agent:
+                                condition: service_started
+                        mosquitto:
+                                condition: service_started
+                        quantumleap:
+                                condition: service_started
+                        aplicacao-web-backend:
+                                condition: service_started
+                volumes:
+                        - ./VolumesDocker/NodeRED:/data
+                networks:
+                        vallpass:
+                                ipv4_address: 172.30.3.150
+secrets:
+        db_user:
+                file: ./SecretsDocker/db_user.txt
+        db_pass:
+                file: ./SecretsDocker/db_pass.txt
+        idm_admin_user:
+                file: ./SecretsDocker/idm_admin_user.txt
+        idm_admin_pass:
+                file: ./SecretsDocker/idm_admin_pass.txt
+        idm_admin_email:
+                file: ./SecretsDocker/idm_admin_email.txt
+        orion_proxy_password:
+                file: ./SecretsDocker/orion_proxy_password.txt
+        iot_agent_proxy_password:
+                file: ./SecretsDocker/iot_agent_proxy_password.txt
+volumes:
+        Nominatim:
+                external: true
+networks:
+        vallpass:
+                ipam:
+                        config:
+                                - subnet: 172.30.0.0/16
+                                  ip_range: 172.30.3.0/24
+                                  gateway: 172.30.3.254
