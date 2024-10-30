@@ -1,0 +1,199 @@
+openapi: "3.0.2"
+
+info:
+  title: VALLPASS data model
+  description: Definition of the VALLPASS data model in the context of smart cities.
+  version: "1.0"
+  contact:
+    name: Tiago Ribeiro
+    email: tiagoribeiro@ipb.pt
+
+# Fictitious paths, merely representative.
+paths:
+  /ngsi-ld/v1/entities:
+    get:
+      responses:
+        "200":
+          description: OK
+
+components:
+  schemas:
+    Company:
+      type: object
+      description: "Schema that represents the company that will commercialize the system."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Organization/Organization/model.yaml#/Organization"
+        - $ref: "https://smart-data-models.github.io/data-models/schema.org.yaml#/ContactPoint"
+      required:
+        - "id"
+        - "type"
+        - "name"
+        - "address"
+        - "location"
+        - "taxID"
+        - "email"
+        - "telephone"
+
+    Client:
+      type: object
+      description: "Schema that represents the customers that will purchase the system from the company."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Organization/Organization/model.yaml#/Organization"
+        - $ref: "https://smart-data-models.github.io/data-models/schema.org.yaml#/ContactPoint"
+      required:
+        - "id"
+        - "type"
+        - "name"
+        - "address"
+        - "location"
+        - "taxID"
+        - "email"
+        - "telephone"
+        - "refProvider"
+
+    Crosswalk:
+      type: object
+      description: "Schema that represents the pedestrian crosswalk that is to be monitored."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/model.yaml#/RoadSegment"
+      required:
+        - "id"
+        - "type"
+        - "location"
+        - "owner"
+
+    Pole:
+      type: object
+      description: "Schema that represents the pole that contains the luminaire and the sensors that will monitor the crosswalk. There are two poles per crosswalk."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Device/Device/model.yaml#/Device"
+      required:
+        - "id"
+        - "type"
+        - "location"
+        - "dateInstalled"
+        - "deviceState"
+        - "controlledAsset"
+
+    TemperatureHumidityPressureSensor:
+      type: object
+      description: "Schema describing the measurements of the temperature, humidity and atmospheric pressure sensor present in each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved"
+      required:
+        - "id"
+        - "type"
+        - "temperature"
+        - "relativeHumidity"
+        - "atmosphericPressure"
+        - "refDevice"
+
+    BrightnessSensor:
+      type: object
+      description: "Schema describing the measurements of the brightness sensor present on each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml#/WeatherObserved"
+      required:
+        - "id"
+        - "type"
+        - "illuminance"
+        - "refDevice"
+
+    VehicleSensor:
+      type: object
+      description: "Schema related to measurements associated with vehicle flow at the crosswalk."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Transportation/ItemFlowObserved/model.yaml#/ItemFlowObserved"
+      required:
+        - "id"
+        - "type"
+        - "refDevice"
+        - "itemType"
+        - "intensity"
+        - "averageSpeed"
+        - "speedMin"
+        - "speedMax"
+
+    PedestrianSensor:
+      type: object
+      description: "Schema related to measurements associated with pedestrian flow at the crosswalk."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Transportation/ItemFlowObserved/model.yaml#/ItemFlowObserved"
+      required:
+        - "id"
+        - "type"
+        - "refDevice"
+        - "itemType"
+        - "intensity"
+
+    AccidentSensor:
+      type: object
+      description: "Schema that describes an accident that occurred on a crosswalk. At the moment, only significant pole impacts are detected."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Transportation/RoadAccident/model.yaml#/RoadAccident"
+      properties:
+        refDevice:
+          allOf:
+            - $ref: "https://smart-data-models.github.io/dataModel.Transportation/ItemFlowObserved/model.yaml#/ItemFlowObserved/properties/refDevice"
+      required:
+        - "id"
+        - "type"
+        - "accidentDate"
+        - "accidentType"
+        - "status"
+        - "refDevice"
+
+    LuminaireModel:
+      type: object
+      description: "Schema describing the luminaire present on each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Streetlighting/StreetlightModel/model.yaml#/StreetlightModel"
+      required:
+        - "id"
+        - "type"
+        - "lampBrandName"
+        - "lampModelName"
+        - "lampTechnology"
+        - "powerConsumption"
+        - "luminousFlux"
+        - "colorTemperature"
+        - "workingLife"
+
+    Luminaire:
+      type: object
+      description: "Schema that holds the status of the luminaire present on each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Streetlighting/Streetlight/model.yaml#/Streetlight"
+      required:
+        - "id"
+        - "type"
+        - "refDevice"
+        - "refStreetlightModel"
+        - "powerState"
+
+    BatteryModel:
+      type: object
+      description: "Schema describing the battery that will store the solar energy and will power each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Battery/StorageBatteryDevice/model.yaml#/StorageBatteryDevice"
+      required:
+        - "id"
+        - "type"
+        - "brandName"
+        - "modelName"
+        - "nominalVoltage"
+        - "nominalCapacity"
+        - "refDevice"
+
+    BatteryMeasurement:
+      type: object
+      description: "Schema that holds the state of the solar battery present on each pole."
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Battery/StorageBatteryMeasurement/model.yaml#/StorageBatteryMeasurement"
+      required:
+        - "id"
+        - "type"
+        - "temperature"
+        - "stateOfCharge"
+        - "stateOfHealth"
+        - "refStorageBatteryDevice"

@@ -1,0 +1,1372 @@
+{
+  "@context": {
+    "type": "@type",
+    "id": "@id",
+    "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+    "fiware": "https://uri.fiware.org/ns/dataModels#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AccidentSensor": "https://uri.fiware.org/ns/dataModels#RoadAccident",
+    "BatteryMeasurement": "https://uri.fiware.org/ns/dataModels#StorageBatteryMeasurement",
+    "BatteryModel": "https://uri.fiware.org/ns/dataModels#StorageBatteryDevice",
+    "BrightnessSensor": "https://uri.fiware.org/ns/dataModels#WeatherObserved",
+    "Client": "https://uri.fiware.org/ns/dataModels#Organization",
+    "Company": "https://uri.fiware.org/ns/dataModels#Organization",
+    "Crosswalk": "https://uri.fiware.org/ns/dataModels#RoadSegment",
+    "Luminaire": "https://uri.fiware.org/ns/dataModels#Streetlight",
+    "LuminaireModel": "https://uri.fiware.org/ns/dataModels#StreetlightModel",
+    "PedestrianSensor": "https://uri.fiware.org/ns/dataModels#ItemFlowObserved",
+    "Pole": "https://uri.fiware.org/ns/dataModels#Device",
+    "TemperatureHumidityPressureSensor": "https://uri.fiware.org/ns/dataModels#WeatherObserved",
+    "VehicleSensor": "https://uri.fiware.org/ns/dataModels#ItemFlowObserved",
+    "accidentDate": {
+      "@id": "https://uri.fiware.org/ns/dataModels#accidentDate",
+      "@type": "xs:dateTime"
+    },
+    "accidentDescription": {
+      "@id": "https://uri.fiware.org/ns/dataModels#accidentDescription",
+      "@type": "xsd:array"
+    },
+    "accidentLocation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#accidentLocation",
+      "@type": "xsd:string"
+    },
+    "accidentStatisticalDate": "https://uri.fiware.org/ns/dataModels#accidentStatisticalDate",
+    "accidentType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#accidentType",
+      "@type": "xsd:array"
+    },
+    "activePower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#activePower",
+      "@type": "xsd:number"
+    },
+    "address": "https://uri.fiware.org/ns/dataModels#address",
+    "agency_name": {
+      "@id": "https://uri.fiware.org/ns/dataModels#agency_name",
+      "@type": "xsd:string"
+    },
+    "aggregateRating": "https://uri.fiware.org/ns/dataModels#aggregateRating",
+    "airQualityIndex": {
+      "@id": "https://uri.fiware.org/ns/dataModels#airQualityIndex",
+      "@type": "xsd:number"
+    },
+    "airQualityIndexForecast": {
+      "@id": "https://uri.fiware.org/ns/dataModels#airQualityIndexForecast",
+      "@type": "xsd:number"
+    },
+    "airTemperatureForecast": {
+      "@id": "https://uri.fiware.org/ns/dataModels#airTemperatureForecast",
+      "@type": "xsd:number"
+    },
+    "airTemperatureTSA": "https://uri.fiware.org/ns/dataModels#airTemperatureTSA",
+    "allowedVehicleType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#allowedVehicleType",
+      "@type": "xsd:array"
+    },
+    "alternateName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#alternateName",
+      "@type": "xsd:string"
+    },
+    "annotations": {
+      "@id": "https://uri.fiware.org/ns/dataModels#annotations",
+      "@type": "xsd:array"
+    },
+    "application": {
+      "@id": "https://uri.fiware.org/ns/dataModels#application",
+      "@type": "xsd:array"
+    },
+    "aqiMajorPollutant": {
+      "@id": "https://uri.fiware.org/ns/dataModels#aqiMajorPollutant",
+      "@type": "xsd:string"
+    },
+    "aqiMajorPollutantForecast": {
+      "@id": "https://uri.fiware.org/ns/dataModels#aqiMajorPollutantForecast",
+      "@type": "xsd:string"
+    },
+    "areaServed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#areaServed",
+      "@type": "xsd:string"
+    },
+    "atmosphericPressure": {
+      "@id": "https://uri.fiware.org/ns/dataModels#atmosphericPressure",
+      "@type": "xsd:number"
+    },
+    "author": {
+      "@id": "https://uri.fiware.org/ns/dataModels#author",
+      "@type": "@id"
+    },
+    "availableLanguage": {
+      "@id": "schema:availableLanguage",
+      "@type": "xsd:undefined"
+    },
+    "averageGapDistance": {
+      "@id": "https://uri.fiware.org/ns/dataModels#averageGapDistance",
+      "@type": "xsd:number"
+    },
+    "averageHeadwayTime": {
+      "@id": "https://uri.fiware.org/ns/dataModels#averageHeadwayTime",
+      "@type": "xsd:number"
+    },
+    "averageLength": {
+      "@id": "https://uri.fiware.org/ns/dataModels#averageLength",
+      "@type": "xsd:number"
+    },
+    "averageLife": {
+      "@id": "https://uri.fiware.org/ns/dataModels#averageLife",
+      "@type": "xsd:number"
+    },
+    "averageSpeed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#averageSpeed",
+      "@type": "xsd:number"
+    },
+    "batteryAssessmentMethods": {
+      "@id": "https://uri.fiware.org/ns/dataModels#batteryAssessmentMethods",
+      "@type": "xsd:string"
+    },
+    "batteryLevel": {
+      "@id": "https://uri.fiware.org/ns/dataModels#batteryLevel",
+      "@type": "xsd:undefined"
+    },
+    "batteryStatus": {
+      "@id": "https://uri.fiware.org/ns/dataModels#batteryStatus",
+      "@type": "xsd:string"
+    },
+    "batteryType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#batteryType",
+      "@type": "xsd:string"
+    },
+    "bestRating": {
+      "@id": "https://uri.fiware.org/ns/dataModels#bestRating",
+      "@type": "xsd:number"
+    },
+    "brandName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#brandName",
+      "@type": "xsd:string"
+    },
+    "bridgeCount": {
+      "@id": "https://uri.fiware.org/ns/dataModels#bridgeCount",
+      "@type": "xsd:number"
+    },
+    "capacityCnnn": "https://uri.fiware.org/ns/dataModels#capacityCnnn",
+    "carriagewayLength": {
+      "@id": "https://uri.fiware.org/ns/dataModels#carriagewayLength",
+      "@type": "xsd:number"
+    },
+    "carriagewayWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#carriagewayWidth",
+      "@type": "xsd:number"
+    },
+    "category": {
+      "@id": "https://uri.fiware.org/ns/dataModels#category",
+      "@type": "xsd:array"
+    },
+    "chargeDischargeReactivity": {
+      "@id": "https://uri.fiware.org/ns/dataModels#chargeDischargeReactivity",
+      "@type": "xsd:number"
+    },
+    "chargeEfficiency": {
+      "@id": "https://uri.fiware.org/ns/dataModels#chargeEfficiency",
+      "@type": "xsd:number"
+    },
+    "chargePower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#chargePower",
+      "@type": "xsd:number"
+    },
+    "chargingModeAllowed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#chargingModeAllowed",
+      "@type": "xsd:array"
+    },
+    "circuit": {
+      "@id": "https://uri.fiware.org/ns/dataModels#circuit",
+      "@type": "xsd:string"
+    },
+    "color": {
+      "@id": "https://uri.fiware.org/ns/dataModels#color",
+      "@type": "xsd:string"
+    },
+    "colorRenderingIndex": {
+      "@id": "https://uri.fiware.org/ns/dataModels#colorRenderingIndex",
+      "@type": "xsd:number"
+    },
+    "colorTemperature": {
+      "@id": "https://uri.fiware.org/ns/dataModels#colorTemperature",
+      "@type": "xsd:number"
+    },
+    "columnBrandName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#columnBrandName",
+      "@type": "xsd:string"
+    },
+    "columnColor": {
+      "@id": "https://uri.fiware.org/ns/dataModels#columnColor",
+      "@type": "xsd:string"
+    },
+    "columnMadeOf": {
+      "@id": "https://uri.fiware.org/ns/dataModels#columnMadeOf",
+      "@type": "xsd:string"
+    },
+    "columnManufacturerName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#columnManufacturerName",
+      "@type": "xsd:string"
+    },
+    "columnModelName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#columnModelName",
+      "@type": "xsd:string"
+    },
+    "communication": {
+      "@id": "https://uri.fiware.org/ns/dataModels#communication",
+      "@type": "xsd:array"
+    },
+    "compliantWith": {
+      "@id": "https://uri.fiware.org/ns/dataModels#compliantWith",
+      "@type": "xsd:array"
+    },
+    "configuration": {
+      "@id": "https://uri.fiware.org/ns/dataModels#configuration",
+      "@type": "xsd:array"
+    },
+    "congested": {
+      "@id": "https://uri.fiware.org/ns/dataModels#congested",
+      "@type": "xsd:boolean"
+    },
+    "contactOption": "schema:contactOption",
+    "contactType": {
+      "@id": "schema:contactType",
+      "@type": "xsd:string"
+    },
+    "controlledAsset": {
+      "@id": "https://uri.fiware.org/ns/dataModels#controlledAsset",
+      "@type": "xsd:array"
+    },
+    "controlledProperty": {
+      "@id": "https://uri.fiware.org/ns/dataModels#controlledProperty",
+      "@type": "xsd:array"
+    },
+    "controllingMethod": {
+      "@id": "https://uri.fiware.org/ns/dataModels#controllingMethod",
+      "@type": "xsd:string"
+    },
+    "culvertCount": {
+      "@id": "https://uri.fiware.org/ns/dataModels#culvertCount",
+      "@type": "xsd:number"
+    },
+    "current": {
+      "@id": "https://uri.fiware.org/ns/dataModels#current",
+      "@type": "xsd:number"
+    },
+    "cyclePathLeftHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathLeftHeight",
+      "@type": "xsd:number"
+    },
+    "cyclePathLeftWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathLeftWidth",
+      "@type": "xsd:number"
+    },
+    "cyclePathMaterial": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathMaterial",
+      "@type": "xsd:string"
+    },
+    "cyclePathPlacement": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathPlacement",
+      "@type": "xsd:string"
+    },
+    "cyclePathRightHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathRightHeight",
+      "@type": "xsd:number"
+    },
+    "cyclePathRightWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#cyclePathRightWidth",
+      "@type": "xsd:number"
+    },
+    "dataDescriptor": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dataDescriptor",
+      "@type": "@id"
+    },
+    "dataProvider": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dataProvider",
+      "@type": "xsd:string"
+    },
+    "dateCreated": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateCreated",
+      "@type": "xs:dateTime"
+    },
+    "dateEnergyMeteringStarted": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateEnergyMeteringStarted",
+      "@type": "xs:dateTime"
+    },
+    "dateFirstUsed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateFirstUsed",
+      "@type": "xs:dateTime"
+    },
+    "dateInstalled": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateInstalled",
+      "@type": "xs:dateTime"
+    },
+    "dateLastCalibration": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastCalibration",
+      "@type": "xs:dateTime"
+    },
+    "dateLastLampChange": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastLampChange",
+      "@type": "xs:dateTime"
+    },
+    "dateLastReported": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastReported",
+      "@type": "xs:dateTime"
+    },
+    "dateLastSwitchingOff": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastSwitchingOff",
+      "@type": "xs:dateTime"
+    },
+    "dateLastSwitchingOn": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastSwitchingOn",
+      "@type": "xs:dateTime"
+    },
+    "dateLastValueReported": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateLastValueReported",
+      "@type": "xs:dateTime"
+    },
+    "dateManufactured": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateManufactured",
+      "@type": "xs:dateTime"
+    },
+    "dateModified": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateModified",
+      "@type": "xs:dateTime"
+    },
+    "dateObserved": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateObserved",
+      "@type": "xs:dateTime"
+    },
+    "dateObservedFrom": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateObservedFrom",
+      "@type": "xs:dateTime"
+    },
+    "dateObservedTo": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateObservedTo",
+      "@type": "xs:dateTime"
+    },
+    "dateServiceStarted": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dateServiceStarted",
+      "@type": "xs:dateTime"
+    },
+    "deepOfDischarge": {
+      "@id": "https://uri.fiware.org/ns/dataModels#deepOfDischarge",
+      "@type": "xsd:number"
+    },
+    "depth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#depth",
+      "@type": "xsd:number"
+    },
+    "description": {
+      "@id": "https://uri.fiware.org/ns/dataModels#description",
+      "@type": "xsd:string"
+    },
+    "deviceCategory": {
+      "@id": "https://uri.fiware.org/ns/dataModels#deviceCategory",
+      "@type": "xsd:array"
+    },
+    "deviceInfo": "https://uri.fiware.org/ns/dataModels#deviceInfo",
+    "deviceState": {
+      "@id": "https://uri.fiware.org/ns/dataModels#deviceState",
+      "@type": "xsd:string"
+    },
+    "dewPoint": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dewPoint",
+      "@type": "xsd:number"
+    },
+    "diffuseIrradiation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#diffuseIrradiation",
+      "@type": "xsd:number"
+    },
+    "dimension": "https://uri.fiware.org/ns/dataModels#dimension",
+    "directIrradiation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#directIrradiation",
+      "@type": "xsd:number"
+    },
+    "direction": {
+      "@id": "https://uri.fiware.org/ns/dataModels#direction",
+      "@type": "xsd:string"
+    },
+    "dischargeEfficiency": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dischargeEfficiency",
+      "@type": "xsd:number"
+    },
+    "dischargePower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dischargePower",
+      "@type": "xsd:number"
+    },
+    "distance": {
+      "@id": "https://uri.fiware.org/ns/dataModels#distance",
+      "@type": "xsd:number"
+    },
+    "documentation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#documentation",
+      "@type": "xsd:string"
+    },
+    "dstAware": {
+      "@id": "https://uri.fiware.org/ns/dataModels#dstAware",
+      "@type": "xsd:boolean"
+    },
+    "durationPeakPower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#durationPeakPower",
+      "@type": "xsd:number"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "endKilometer": {
+      "@id": "https://uri.fiware.org/ns/dataModels#endKilometer",
+      "@type": "xsd:number"
+    },
+    "endPoint": {
+      "@id": "https://uri.fiware.org/ns/dataModels#endPoint",
+      "@type": "xsd:undefined"
+    },
+    "faxNumber": {
+      "@id": "schema:faxNumber",
+      "@type": "xsd:string"
+    },
+    "feederID": {
+      "@id": "https://uri.fiware.org/ns/dataModels#feederID",
+      "@type": "@id"
+    },
+    "feederPillarNum": {
+      "@id": "https://uri.fiware.org/ns/dataModels#feederPillarNum",
+      "@type": "xsd:string"
+    },
+    "feelLikesTemperature": {
+      "@id": "https://uri.fiware.org/ns/dataModels#feelLikesTemperature",
+      "@type": "xsd:number"
+    },
+    "firmwareVersion": {
+      "@id": "https://uri.fiware.org/ns/dataModels#firmwareVersion",
+      "@type": "xsd:string"
+    },
+    "gustSpeed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#gustSpeed",
+      "@type": "xsd:number"
+    },
+    "hardwareVersion": {
+      "@id": "https://uri.fiware.org/ns/dataModels#hardwareVersion",
+      "@type": "xsd:string"
+    },
+    "hoursAvailable": "schema:hoursAvailable",
+    "illuminance": {
+      "@id": "https://uri.fiware.org/ns/dataModels#illuminance",
+      "@type": "xsd:number"
+    },
+    "illuminanceLevel": {
+      "@id": "https://uri.fiware.org/ns/dataModels#illuminanceLevel",
+      "@type": "xsd:number"
+    },
+    "image": {
+      "@id": "https://uri.fiware.org/ns/dataModels#image",
+      "@type": "@id"
+    },
+    "installationCondition": {
+      "@id": "https://uri.fiware.org/ns/dataModels#installationCondition",
+      "@type": "xsd:array"
+    },
+    "installationMode": {
+      "@id": "https://uri.fiware.org/ns/dataModels#installationMode",
+      "@type": "xsd:string"
+    },
+    "intensity": {
+      "@id": "https://uri.fiware.org/ns/dataModels#intensity",
+      "@type": "xsd:number"
+    },
+    "inverterStatus": {
+      "@id": "https://uri.fiware.org/ns/dataModels#inverterStatus",
+      "@type": "xsd:array"
+    },
+    "ipAddress": {
+      "@id": "https://uri.fiware.org/ns/dataModels#ipAddress",
+      "@type": "xsd:array"
+    },
+    "itemSubType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#itemSubType",
+      "@type": "xsd:string"
+    },
+    "itemType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#itemType",
+      "@type": "xsd:string"
+    },
+    "lampBrandName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lampBrandName",
+      "@type": "xsd:string"
+    },
+    "lampManufacturerName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lampManufacturerName",
+      "@type": "xsd:string"
+    },
+    "lampModelName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lampModelName",
+      "@type": "xsd:string"
+    },
+    "lampTechnology": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lampTechnology",
+      "@type": "xsd:string"
+    },
+    "lampWeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lampWeight",
+      "@type": "xsd:string"
+    },
+    "laneDirection": {
+      "@id": "https://uri.fiware.org/ns/dataModels#laneDirection",
+      "@type": "xsd:string"
+    },
+    "laneId": {
+      "@id": "https://uri.fiware.org/ns/dataModels#laneId",
+      "@type": "xsd:number"
+    },
+    "laneInfo": "https://uri.fiware.org/ns/dataModels#laneInfo",
+    "laneUsage": {
+      "@id": "https://uri.fiware.org/ns/dataModels#laneUsage",
+      "@type": "xsd:array"
+    },
+    "lanternBrandName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lanternBrandName",
+      "@type": "xsd:string"
+    },
+    "lanternHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lanternHeight",
+      "@type": "xsd:number"
+    },
+    "lanternManufacturerName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lanternManufacturerName",
+      "@type": "xsd:string"
+    },
+    "lanternModelName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lanternModelName",
+      "@type": "xsd:string"
+    },
+    "lanternWeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#lanternWeight",
+      "@type": "xsd:number"
+    },
+    "legalName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#legalName",
+      "@type": "xsd:string"
+    },
+    "length": {
+      "@id": "https://uri.fiware.org/ns/dataModels#length",
+      "@type": "xsd:number"
+    },
+    "lifeCycleNumber": "https://uri.fiware.org/ns/dataModels#lifeCycleNumber",
+    "localId": {
+      "@id": "https://uri.fiware.org/ns/dataModels#localId",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "https://uri.fiware.org/ns/dataModels#location",
+      "@type": "xsd:undefined"
+    },
+    "locationCategory": {
+      "@id": "https://uri.fiware.org/ns/dataModels#locationCategory",
+      "@type": "xsd:string"
+    },
+    "luminousFlux": {
+      "@id": "https://uri.fiware.org/ns/dataModels#luminousFlux",
+      "@type": "xsd:number"
+    },
+    "macAddress": {
+      "@id": "https://uri.fiware.org/ns/dataModels#macAddress",
+      "@type": "xsd:string"
+    },
+    "manufacturerName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#manufacturerName",
+      "@type": "xsd:string"
+    },
+    "massEnergyDensity": "https://uri.fiware.org/ns/dataModels#massEnergyDensity",
+    "maxOutputPower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maxOutputPower",
+      "@type": "xsd:number"
+    },
+    "maxPowerConsumption": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maxPowerConsumption",
+      "@type": "xsd:number"
+    },
+    "maximumAllowedHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maximumAllowedHeight",
+      "@type": "xsd:number"
+    },
+    "maximumAllowedSpeed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maximumAllowedSpeed",
+      "@type": "xsd:number"
+    },
+    "maximumAllowedWeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maximumAllowedWeight",
+      "@type": "xsd:number"
+    },
+    "maximumAllowedWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maximumAllowedWidth",
+      "@type": "xsd:number"
+    },
+    "maximumVoltageEOC": {
+      "@id": "https://uri.fiware.org/ns/dataModels#maximumVoltageEOC",
+      "@type": "xsd:number"
+    },
+    "mcc": {
+      "@id": "https://uri.fiware.org/ns/dataModels#mcc",
+      "@type": "xsd:string"
+    },
+    "medianHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#medianHeight",
+      "@type": "xsd:number"
+    },
+    "medianLength": {
+      "@id": "https://uri.fiware.org/ns/dataModels#medianLength",
+      "@type": "xsd:number"
+    },
+    "medianWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#medianWidth",
+      "@type": "xsd:number"
+    },
+    "minPowerConsumption": {
+      "@id": "https://uri.fiware.org/ns/dataModels#minPowerConsumption",
+      "@type": "xsd:number"
+    },
+    "minimumAllowedSpeed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#minimumAllowedSpeed",
+      "@type": "xsd:number"
+    },
+    "minimumVoltageEOD": {
+      "@id": "https://uri.fiware.org/ns/dataModels#minimumVoltageEOD",
+      "@type": "xsd:number"
+    },
+    "mnc": {
+      "@id": "https://uri.fiware.org/ns/dataModels#mnc",
+      "@type": "xsd:string"
+    },
+    "modelName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#modelName",
+      "@type": "xsd:string"
+    },
+    "municipalityInfo": "https://uri.fiware.org/ns/dataModels#municipalityInfo",
+    "name": {
+      "@id": "https://uri.fiware.org/ns/dataModels#name",
+      "@type": "xsd:string"
+    },
+    "nominalAmpere": {
+      "@id": "https://uri.fiware.org/ns/dataModels#nominalAmpere",
+      "@type": "xsd:number"
+    },
+    "nominalCapacity": {
+      "@id": "https://uri.fiware.org/ns/dataModels#nominalCapacity",
+      "@type": "xsd:number"
+    },
+    "nominalFrequency": {
+      "@id": "https://uri.fiware.org/ns/dataModels#nominalFrequency",
+      "@type": "xsd:number"
+    },
+    "nominalVoltage": {
+      "@id": "https://uri.fiware.org/ns/dataModels#nominalVoltage",
+      "@type": "xsd:number"
+    },
+    "numPassengersDead": {
+      "@id": "https://uri.fiware.org/ns/dataModels#numPassengersDead",
+      "@type": "xsd:number"
+    },
+    "numPassengersInjured": {
+      "@id": "https://uri.fiware.org/ns/dataModels#numPassengersInjured",
+      "@type": "xsd:number"
+    },
+    "numPedestrianDead": {
+      "@id": "https://uri.fiware.org/ns/dataModels#numPedestrianDead",
+      "@type": "xsd:number"
+    },
+    "numPedestrianInjured": {
+      "@id": "https://uri.fiware.org/ns/dataModels#numPedestrianInjured",
+      "@type": "xsd:number"
+    },
+    "observationDateTime": {
+      "@id": "https://uri.fiware.org/ns/dataModels#observationDateTime",
+      "@type": "xs:dateTime"
+    },
+    "occupancy": {
+      "@id": "https://uri.fiware.org/ns/dataModels#occupancy",
+      "@type": "xsd:number"
+    },
+    "openCircuitVoltage": {
+      "@id": "https://uri.fiware.org/ns/dataModels#openCircuitVoltage",
+      "@type": "xsd:number"
+    },
+    "operatingAltitude": "https://uri.fiware.org/ns/dataModels#operatingAltitude",
+    "operatingAmpere": "https://uri.fiware.org/ns/dataModels#operatingAmpere",
+    "operatingFrequency": "https://uri.fiware.org/ns/dataModels#operatingFrequency",
+    "operatingTemperature": "https://uri.fiware.org/ns/dataModels#operatingTemperature",
+    "operatingVoltage": "https://uri.fiware.org/ns/dataModels#operatingVoltage",
+    "osVersion": {
+      "@id": "https://uri.fiware.org/ns/dataModels#osVersion",
+      "@type": "xsd:string"
+    },
+    "overloadAccepted": {
+      "@id": "https://uri.fiware.org/ns/dataModels#overloadAccepted",
+      "@type": "xsd:boolean"
+    },
+    "overloadAcceptedTime": {
+      "@id": "https://uri.fiware.org/ns/dataModels#overloadAcceptedTime",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "https://uri.fiware.org/ns/dataModels#owner",
+      "@type": "xsd:array"
+    },
+    "peakPower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#peakPower",
+      "@type": "xsd:number"
+    },
+    "pedestrianPathLeftHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathLeftHeight",
+      "@type": "xsd:number"
+    },
+    "pedestrianPathLeftWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathLeftWidth",
+      "@type": "xsd:number"
+    },
+    "pedestrianPathMaterial": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathMaterial",
+      "@type": "xsd:string"
+    },
+    "pedestrianPathPlacement": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathPlacement",
+      "@type": "xsd:string"
+    },
+    "pedestrianPathRightHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathRightHeight",
+      "@type": "xsd:number"
+    },
+    "pedestrianPathRightWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestrianPathRightWidth",
+      "@type": "xsd:number"
+    },
+    "pedestriansInvolved": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pedestriansInvolved",
+      "@type": "xsd:boolean"
+    },
+    "possibilityOfUse": {
+      "@id": "https://uri.fiware.org/ns/dataModels#possibilityOfUse",
+      "@type": "xsd:string"
+    },
+    "powerConsumption": {
+      "@id": "https://uri.fiware.org/ns/dataModels#powerConsumption",
+      "@type": "xsd:number"
+    },
+    "powerFactor": {
+      "@id": "https://uri.fiware.org/ns/dataModels#powerFactor",
+      "@type": "xsd:number"
+    },
+    "powerRating": {
+      "@id": "https://uri.fiware.org/ns/dataModels#powerRating",
+      "@type": "xsd:number"
+    },
+    "powerState": {
+      "@id": "https://uri.fiware.org/ns/dataModels#powerState",
+      "@type": "xsd:string"
+    },
+    "precipitation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#precipitation",
+      "@type": "xsd:number"
+    },
+    "precipitationForecast": {
+      "@id": "https://uri.fiware.org/ns/dataModels#precipitationForecast",
+      "@type": "xsd:number"
+    },
+    "pressureTendency": {
+      "@id": "https://uri.fiware.org/ns/dataModels#pressureTendency",
+      "@type": "xsd:undefined"
+    },
+    "productSupported": {
+      "@id": "schema:productSupported",
+      "@type": "xsd:string"
+    },
+    "protectionIK": {
+      "@id": "https://uri.fiware.org/ns/dataModels#protectionIK",
+      "@type": "xsd:number"
+    },
+    "protectionIP": {
+      "@id": "https://uri.fiware.org/ns/dataModels#protectionIP",
+      "@type": "xsd:string"
+    },
+    "provider": {
+      "@id": "https://uri.fiware.org/ns/dataModels#provider",
+      "@type": "xsd:string"
+    },
+    "reactivePower": {
+      "@id": "https://uri.fiware.org/ns/dataModels#reactivePower",
+      "@type": "xsd:number"
+    },
+    "rechargeEnergySource": {
+      "@id": "https://uri.fiware.org/ns/dataModels#rechargeEnergySource",
+      "@type": "xsd:string"
+    },
+    "refDevice": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refDevice",
+      "@type": "@id"
+    },
+    "refDeviceModel": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refDeviceModel",
+      "@type": "@id"
+    },
+    "refPointOfInterest": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refPointOfInterest",
+      "@type": "@id"
+    },
+    "refRoad": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refRoad",
+      "@type": "@id"
+    },
+    "refRoadSegment": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refRoadSegment",
+      "@type": "@id"
+    },
+    "refStorageBatteryDevice": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refStorageBatteryDevice",
+      "@type": "@id"
+    },
+    "refStreetlightControlCabinet": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refStreetlightControlCabinet",
+      "@type": "@id"
+    },
+    "refStreetlightGroup": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refStreetlightGroup",
+      "@type": "@id"
+    },
+    "refStreetlightModel": {
+      "@id": "https://uri.fiware.org/ns/dataModels#refStreetlightModel",
+      "@type": "@id"
+    },
+    "relativeHumidity": {
+      "@id": "https://uri.fiware.org/ns/dataModels#relativeHumidity",
+      "@type": "xsd:number"
+    },
+    "relativeHumidityForecast": {
+      "@id": "https://uri.fiware.org/ns/dataModels#relativeHumidityForecast",
+      "@type": "xsd:number"
+    },
+    "relativePosition": {
+      "@id": "https://uri.fiware.org/ns/dataModels#relativePosition",
+      "@type": "xsd:string"
+    },
+    "reversedLane": {
+      "@id": "https://uri.fiware.org/ns/dataModels#reversedLane",
+      "@type": "xsd:boolean"
+    },
+    "reviewAspect": {
+      "@id": "https://uri.fiware.org/ns/dataModels#reviewAspect",
+      "@type": "xsd:string"
+    },
+    "rightOfWayWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#rightOfWayWidth",
+      "@type": "xsd:number"
+    },
+    "roadClass": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadClass",
+      "@type": "xsd:string"
+    },
+    "roadDirection": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadDirection",
+      "@type": "xsd:string"
+    },
+    "roadId": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadId",
+      "@type": "xsd:string"
+    },
+    "roadIntersection": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadIntersection",
+      "@type": "xsd:string"
+    },
+    "roadMaterial": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadMaterial",
+      "@type": "xsd:string"
+    },
+    "roadName": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadName",
+      "@type": "xsd:string"
+    },
+    "roadPaving": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadPaving",
+      "@type": "xsd:string"
+    },
+    "roadSign": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadSign",
+      "@type": "xsd:string"
+    },
+    "roadSurface": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadSurface",
+      "@type": "xsd:string"
+    },
+    "roadTrunk": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadTrunk",
+      "@type": "xsd:string"
+    },
+    "roadWork": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roadWork",
+      "@type": "xsd:string"
+    },
+    "roundTripEfficiency": {
+      "@id": "https://uri.fiware.org/ns/dataModels#roundTripEfficiency",
+      "@type": "xsd:number"
+    },
+    "rssi": {
+      "@id": "https://uri.fiware.org/ns/dataModels#rssi",
+      "@type": "xsd:number"
+    },
+    "seeAlso": {
+      "@id": "https://uri.fiware.org/ns/dataModels#seeAlso",
+      "@type": "xsd:undefined"
+    },
+    "selfDischargeRate": {
+      "@id": "https://uri.fiware.org/ns/dataModels#selfDischargeRate",
+      "@type": "xsd:number"
+    },
+    "serialNumber": {
+      "@id": "https://uri.fiware.org/ns/dataModels#serialNumber",
+      "@type": "xsd:string"
+    },
+    "snowHeight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#snowHeight",
+      "@type": "xsd:number"
+    },
+    "softwareVersion": {
+      "@id": "https://uri.fiware.org/ns/dataModels#softwareVersion",
+      "@type": "xsd:string"
+    },
+    "solarRadiation": {
+      "@id": "https://uri.fiware.org/ns/dataModels#solarRadiation",
+      "@type": "xsd:number"
+    },
+    "source": {
+      "@id": "https://uri.fiware.org/ns/dataModels#source",
+      "@type": "xsd:string"
+    },
+    "speedMax": {
+      "@id": "https://uri.fiware.org/ns/dataModels#speedMax",
+      "@type": "xsd:number"
+    },
+    "speedMin": {
+      "@id": "https://uri.fiware.org/ns/dataModels#speedMin",
+      "@type": "xsd:number"
+    },
+    "startKilometer": {
+      "@id": "https://uri.fiware.org/ns/dataModels#startKilometer",
+      "@type": "xsd:number"
+    },
+    "startPoint": {
+      "@id": "https://uri.fiware.org/ns/dataModels#startPoint",
+      "@type": "xsd:undefined"
+    },
+    "stateOfCharge": {
+      "@id": "https://uri.fiware.org/ns/dataModels#stateOfCharge",
+      "@type": "xsd:number"
+    },
+    "stateOfHealth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#stateOfHealth",
+      "@type": "xsd:number"
+    },
+    "status": {
+      "@id": "https://uri.fiware.org/ns/dataModels#status",
+      "@type": "xsd:string"
+    },
+    "statusDescription": {
+      "@id": "https://uri.fiware.org/ns/dataModels#statusDescription",
+      "@type": "xsd:string"
+    },
+    "storableEnergy": {
+      "@id": "https://uri.fiware.org/ns/dataModels#storableEnergy",
+      "@type": "xsd:number"
+    },
+    "streamGauge": {
+      "@id": "https://uri.fiware.org/ns/dataModels#streamGauge",
+      "@type": "xsd:number"
+    },
+    "streetPoleNum": {
+      "@id": "https://uri.fiware.org/ns/dataModels#streetPoleNum",
+      "@type": "xsd:string"
+    },
+    "supportedProtocol": {
+      "@id": "https://uri.fiware.org/ns/dataModels#supportedProtocol",
+      "@type": "xsd:array"
+    },
+    "taxID": {
+      "@id": "https://uri.fiware.org/ns/dataModels#taxID",
+      "@type": "xsd:string"
+    },
+    "telephone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "temperature": {
+      "@id": "https://uri.fiware.org/ns/dataModels#temperature",
+      "@type": "xsd:number"
+    },
+    "toolBMS": {
+      "@id": "https://uri.fiware.org/ns/dataModels#toolBMS",
+      "@type": "xsd:boolean"
+    },
+    "totalCyclePathWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalCyclePathWidth",
+      "@type": "xsd:number"
+    },
+    "totalDeadPeopleWithin24Hours": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalDeadPeopleWithin24Hours",
+      "@type": "xsd:number"
+    },
+    "totalDeadPeopleWithin30Days": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalDeadPeopleWithin30Days",
+      "@type": "xsd:number"
+    },
+    "totalInjured": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalInjured",
+      "@type": "xsd:number"
+    },
+    "totalLaneNumber": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalLaneNumber",
+      "@type": "xsd:number"
+    },
+    "totalPedestrianPathLength": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalPedestrianPathLength",
+      "@type": "xsd:number"
+    },
+    "totalPedestrianPathWidth": {
+      "@id": "https://uri.fiware.org/ns/dataModels#totalPedestrianPathWidth",
+      "@type": "xsd:number"
+    },
+    "typeEnergySource": {
+      "@id": "https://uri.fiware.org/ns/dataModels#typeEnergySource",
+      "@type": "xsd:array"
+    },
+    "typeOfUse": {
+      "@id": "https://uri.fiware.org/ns/dataModels#typeOfUse",
+      "@type": "xsd:string"
+    },
+    "uVIndexMax": {
+      "@id": "https://uri.fiware.org/ns/dataModels#uVIndexMax",
+      "@type": "xsd:number"
+    },
+    "url": {
+      "@id": "https://uri.fiware.org/ns/dataModels#url",
+      "@type": "xs:anyURI"
+    },
+    "usableEnergy": {
+      "@id": "https://uri.fiware.org/ns/dataModels#usableEnergy",
+      "@type": "xsd:number"
+    },
+    "value": {
+      "@id": "https://uri.fiware.org/ns/dataModels#value",
+      "@type": "xsd:string"
+    },
+    "vehiclesInvolved": {
+      "@id": "https://uri.fiware.org/ns/dataModels#vehiclesInvolved",
+      "@type": "xsd:array"
+    },
+    "visibility": {
+      "@id": "https://uri.fiware.org/ns/dataModels#visibility",
+      "@type": "xsd:undefined"
+    },
+    "volEnergyDensity": "https://uri.fiware.org/ns/dataModels#volEnergyDensity",
+    "voltage": {
+      "@id": "https://uri.fiware.org/ns/dataModels#voltage",
+      "@type": "xsd:number"
+    },
+    "weakestSubject": {
+      "@id": "https://uri.fiware.org/ns/dataModels#weakestSubject",
+      "@type": "xsd:string"
+    },
+    "weatherConditions": {
+      "@id": "https://uri.fiware.org/ns/dataModels#weatherConditions",
+      "@type": "xsd:array"
+    },
+    "weatherType": {
+      "@id": "https://uri.fiware.org/ns/dataModels#weatherType",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "https://uri.fiware.org/ns/dataModels#weight",
+      "@type": "xsd:number"
+    },
+    "width": {
+      "@id": "https://uri.fiware.org/ns/dataModels#width",
+      "@type": "xsd:number"
+    },
+    "windDirection": {
+      "@id": "https://uri.fiware.org/ns/dataModels#windDirection",
+      "@type": "xsd:number"
+    },
+    "windSpeed": {
+      "@id": "https://uri.fiware.org/ns/dataModels#windSpeed",
+      "@type": "xsd:number"
+    },
+    "workingLife": {
+      "@id": "https://uri.fiware.org/ns/dataModels#workingLife",
+      "@type": "xsd:number"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#Company",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that represents the company that will commercialize the system."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Company"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#Client",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that represents the customers that will purchase the system from the company."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Client"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#Crosswalk",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that represents the pedestrian crosswalk that is to be monitored."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Crosswalk"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#Pole",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that represents the pole that contains the luminaire and the sensors that will monitor the crosswalk. There are two poles per crosswalk."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Pole"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#TemperatureHumidityPressureSensor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema describing the measurements of the temperature, humidity and atmospheric pressure sensor present in each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "TemperatureHumidityPressureSensor"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#BrightnessSensor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema describing the measurements of the brightness sensor present on each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "BrightnessSensor"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#VehicleSensor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema related to measurements associated with vehicle flow at the crosswalk."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "VehicleSensor"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#PedestrianSensor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema related to measurements associated with pedestrian flow at the crosswalk."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "PedestrianSensor"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#AccidentSensor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that describes an accident that occurred on a crosswalk. At the moment, only significant pole impacts are detected."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "AccidentSensor"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#LuminaireModel",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema describing the luminaire present on each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "LuminaireModel"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#Luminaire",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that holds the status of the luminaire present on each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Luminaire"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#BatteryModel",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema describing the battery that will store the solar energy and will power each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "BatteryModel"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#BatteryMeasurement",
+      "@type": "rdfs:Class",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "Schema that holds the state of the solar battery present on each pole."
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "BatteryMeasurement"
+        }
+      ],
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "https://uri.fiware.org/ns/dataModels#refDevice",
+      "@type": "ngsi-ld:Property",
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": ""
+        }
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "refDevice"
+        }
+      ]
+    }
+  ]
+}

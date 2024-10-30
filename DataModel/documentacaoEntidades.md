@@ -1,0 +1,1719 @@
+# Company
+
+Schema that represents the company that will commercialize the system.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `aggregateRating`: The average rating based on multiple ratings or reviews. Privacy:'low'
+  - Attribute type: **Property**.
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `author`: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+  - Attribute type: **Relationship**. [URL](https://schema.org/URL)
+  - Optional
+- `bestRating`: The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `legalName`: The official name of the organization, e.g. the registered company name.
+  - Attribute type: **Property**. [legalName](https://schema.org/legalName)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `reviewAspect`: This Review or Rating is relevant to this part or facet of the itemReviewed
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `taxID`: The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+  - Attribute type: **Property**. [taxID](https://schema.org/taxID)
+  - Optional
+- `type`: NGSI entity type. It has to be Organization. One of : `Organization`.
+  - Attribute type: **Property**.
+  - Required
+- `url`: URL which provides a description or further information about this item.
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided. Supersedes serviceArea.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+  - Normative References: https://schema.org/areaServed
+- `availableLanguage`: A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
+  - Attribute type: **Property**. [Text](https://schema.org/Text) or [Language](https://schema.org/Language)
+  - Optional
+  - Normative References: https://schema.org/availableLanguage
+- `contactOption`: An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
+  - Attribute type: **Property**. [ContactPointOption](https://schema.org/ContactPointOption)
+  - Optional
+  - Normative References: https://schema.org/contactOption
+- `contactType`: A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `email`: Email address.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `faxNumber`: The fax number.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `hoursAvailable`: The hours during which this service or contact is available.
+  - Attribute type: **Property**. [OpeningHoursSpecification](https://schema.org/OpeningHoursSpecification)
+  - Optional
+  - Normative References: https://schema.org/OpeningHoursSpecification
+- `productSupported`: The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `telephone`: The telephone number.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+
+# Client
+
+Schema that represents the customers that will purchase the system from the company.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `aggregateRating`: The average rating based on multiple ratings or reviews. Privacy:'low'
+  - Attribute type: **Property**.
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `author`: The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+  - Attribute type: **Relationship**. [URL](https://schema.org/URL)
+  - Optional
+- `bestRating`: The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `legalName`: The official name of the organization, e.g. the registered company name.
+  - Attribute type: **Property**. [legalName](https://schema.org/legalName)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `reviewAspect`: This Review or Rating is relevant to this part or facet of the itemReviewed
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `taxID`: The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+  - Attribute type: **Property**. [taxID](https://schema.org/taxID)
+  - Optional
+- `type`: NGSI entity type. It has to be Organization. One of : `Organization`.
+  - Attribute type: **Property**.
+  - Required
+- `url`: URL which provides a description or further information about this item.
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided. Supersedes serviceArea.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+  - Normative References: https://schema.org/areaServed
+- `availableLanguage`: A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
+  - Attribute type: **Property**. [Text](https://schema.org/Text) or [Language](https://schema.org/Language)
+  - Optional
+  - Normative References: https://schema.org/availableLanguage
+- `contactOption`: An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
+  - Attribute type: **Property**. [ContactPointOption](https://schema.org/ContactPointOption)
+  - Optional
+  - Normative References: https://schema.org/contactOption
+- `contactType`: A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `email`: Email address.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `faxNumber`: The fax number.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `hoursAvailable`: The hours during which this service or contact is available.
+  - Attribute type: **Property**. [OpeningHoursSpecification](https://schema.org/OpeningHoursSpecification)
+  - Optional
+  - Normative References: https://schema.org/OpeningHoursSpecification
+- `productSupported`: The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `telephone`: The telephone number.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+
+# Crosswalk
+
+Schema that represents the pedestrian crosswalk that is to be monitored.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `agency_name`: The agency_name field contains the full name of the agency or organisation responsible for maintenance of the entity under consideration. SameAs: 'agency_name' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)
+  - Attribute type: **Property**.
+  - Optional
+- `allowedVehicleType`: Vehicle type(s) allowed to transit through this road segment. Enum:'agriculturalVehicle, bicycle, bus, car, caravan, carWithCaravan, carWithTrailer, constructionOrMaintenanceVehicle, lorry, moped, motorcycle, motorcycleWithSideCar, motorscooter, tanker, trailer, van, anyVehicle'. Allowed values: The following values defined by _VehicleTypeEnum_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/):
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Required
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `annotations`: Annotations about the item
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `bridgeCount`: Number of bridges in the road segment corresponding to this observation. Takes 0 (zero) as the value when the road segment has no bridges.
+  - Attribute type: **Property**.
+  - Optional
+- `carriagewayLength`: Total length of the carriage way of the road segment corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `carriagewayWidth`: Total width of the carriage way of the road segment corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `category`: Allows to convey extra characteristics of a road segment. Enum:'oneway, toll, link'. `oneway`: Flags whether the road segment can only be used in one direction. If not present it means road segment can be used in both directions (forwards and backwards). See also [http://wiki.openstreetmap.org/wiki/Key:oneway](http://wiki.openstreetmap.org/wiki/Key:oneway). `toll` : Flags whether the road segment is under toll fees. `link` : Flags whether this road segment is an auxiliary link segment for exiting or entering a road. See [https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway_link](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway_link). Any other value meaningful to an application.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `color`: The color of the product
+  - Attribute type: **Property**. [color](https://schema.org/color)
+  - Optional
+- `culvertCount`: Number of culverts prevalent in the trace of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathLeftHeight`: Height of the cycle track on the left edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathLeftWidth`: Width of the cycle track on the left edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathMaterial`: Construction material used for laying the cycle path on the sides of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathPlacement`: Describes the placement of cycle track along the road segment corresponding to this observation. Enum:' ['RIGHT, LEFT, BOTH, NOT_AVAILABLE'. One of : `BOTH`, `LEFT`, `NOT_AVAILABLE`, `RIGHT`.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathRightHeight`: Height of the cycle track on the right edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `cyclePathRightWidth`: Width of the cycle track on the right edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `dataDescriptor`: URI pointing to the data-descriptor entity
+  - Attribute type: **Relationship**.
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `endKilometer`: The kilometer number (measured from the road's start point) where this road segment ends.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `endPoint`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `image`: An image of the item
+  - Attribute type: **Property**. [URL](https://schema.org/URL)
+  - Optional
+- `laneInfo`: Describes the aspects of lanes of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `laneUsage`: This attribute can be used to convey specific parameters describing each lane. It must contain a string per road segment lane. The element 0 of the array must contain the information of lane 1, and so on. Format of the referred string must be: <lane_direction>, <lane_minimumAllowedSpeed>, <lane_maximumAllowedSpeed>, <lane_maximumAllowedHeight>, <lane_maximumAllowedWeight>. <lane_direction> is a text string with the following allowed values: `forward`. The lane is currently used in the `forwards` direction. `backward`. The lane is currently used in the `backwards` direction. The only mandatory parameter is `lane_direction`. If not specified, the rest of parameters can be assumed to be equal to those specified at entity level.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `length`: Total length of this road segment in kilometers
+  - Attribute type: **Property**. [length](https://schema.org/length)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `maximumAllowedHeight`: Maximum allowed height for vehicles transiting this road segment
+  - Attribute type: **Property**. [height](https://schema.org/height)
+  - Optional
+- `maximumAllowedSpeed`: Maximum allowed speed plying the road segment. More restrictive limits might be applied to specific vehicle types (trucks, caravans, etc.)
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `maximumAllowedWeight`: Maximum allowed weight for vehicles transiting this road segment
+  - Attribute type: **Property**. [weight](https://schema.org/weight)
+  - Optional
+- `maximumAllowedWidth`: Maximum allowed width for vehicles using the entity corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `medianHeight`: Height of the median or central reservation in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `medianLength`: Length of the median or central reservation in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `medianWidth`: Width of the median or central reservation in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `minimumAllowedSpeed`: Minimum allowed speed while transiting this road segment
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `municipalityInfo`: Municipality information corresponding to this observation.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Required
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathLeftHeight`: Height of the walkway placed on the left edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathLeftWidth`: Width of the walkway placed on the left edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathMaterial`: Construction material used for laying the walkway / footpath on the sides of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathPlacement`: Describes the presence and placement of pedestrian along the road segment corresponding to this observation. Enum:'RIGHT, LEFT, BOTH, NOT_AVAILABLE'
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathRightHeight`: Height of the walkway placed on the right edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `pedestrianPathRightWidth`: Width of the walkway placed on the right edge of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `refRoad`: Road to which this road segment belongs to.
+  - Attribute type: **Relationship**.
+  - Required
+- `rightOfWayWidth`: Right of Way (RoW) is the total land area available for the roadway. Its width accommodates for carriages way + other necessities + future extension, along the road's alignment.
+  - Attribute type: **Property**.
+  - Optional
+- `roadClass`: The type of road corresponding to this observation. Enum: [OTHER_PUBLIC_ROAD, PRIVATE_ROAD, MINOR_CITY_ROAD, MAJOR_DISTRICT_ROAD, MAJOR_CITY_ROAD, NATIONAL_HIGHWAY, SERVICE_ROAD, STATE_HIGHWAY, OTHER_DISTRICT_ROAD, PORT_ROAD].. One of : `MAJOR_DISTRICT_ROAD`, `MAJOR_CITY_ROAD`, `MINOR_CITY_ROAD`, `NATIONAL_HIGHWAY`, `OTHER_DISTRICT_ROAD`, `OTHER_PUBLIC_ROAD`, `PORT_ROAD`, `PRIVATE_ROAD`, `SERVICE_ROAD`, `STATE_HIGHWAY`.
+  - Attribute type: **Property**.
+  - Optional
+- `roadDirection`: Represents the direction the road is heading to. Enum:' ['N, S, E, W'. The values N,S,E,W represent North,South,East,West respectively.
+  - Attribute type: **Property**.
+  - Optional
+- `roadId`: Unique internal representation of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `roadMaterial`: The construction material used for laying the carriageway corresponding to this observation. For eg. concrete, earthen, tar etc.
+  - Attribute type: **Property**.
+  - Optional
+- `roadName`: The name of the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `roadWork`: Reasons for the road work in case of urgent intervention. A combination of these values. Enum:'COLLAPSE, DERAILMENT, FIRE, FLOOD, GASLEAK, LANDSLIDE, OTHER, POWERCUT, ROCKFALL, SAGGING, WATERLEAK'.. One of : `COLLAPSE`, `DERAILMENT`, `FIRE`, `FLOOD`, `GASLEAK`, `LANDSLIDE`, `OTHER`, `POWERCUT`, `ROCKFALL`, `SAGGING`, `WATERLEAK`.
+  - Attribute type: **Property**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `startKilometer`: The kilometer number (measured from the road's start point) where this road segment starts.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `startPoint`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `status`: Specific driving conditions on the roadsegment. Use statusDescription for additional information. Enum: ‘open, closed, limited’. `open`: the roadsegment can be used in full intended capacity, `closed`: no traffic is possible, e.g. due to roadworks, an open bridge or lock, or any other event preventing traffic. `limited`: traffic is possible, but not in the full capacity.
+  - Attribute type: **Property**.
+  - Optional
+- `statusDescription`: Additional information to the status attribute.
+  - Attribute type: **Property**.
+  - Optional
+- `totalCyclePathWidth`: Total width of the cycle track present in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `totalLaneNumber`: Total number of lanes offered by this road segment
+  - Attribute type: **Property**. [Number.](https://schema.org/Number.)
+  - Optional
+- `totalPedestrianPathLength`: Total length of the walkway present in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `totalPedestrianPathWidth`: Total width of the walkway present in the road corresponding to this observation.
+  - Attribute type: **Property**.
+  - Optional
+- `type`: NGSI Entity type. It has to be RoadSegment. One of : `RoadSegment`.
+  - Attribute type: **Property**.
+  - Required
+- `width`: Road's segment width.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+
+# Pole
+
+Schema that represents the pole that contains the luminaire and the sensors that will monitor the crosswalk. There are two poles per crosswalk.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `batteryLevel`: Device battery level. It must be equal to 1.0 when battery is full. 0.0 when battery is empty. -1 when transiently cannot be determined.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `category`: Sensor: A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. https://w3id.org/saref#Sensor. actuator : A device responsible for moving or controlling a mechanism or system. https://w3id.org/saref#Actuator. Meter : A device built to accurately detect and display a quantity in a form readable by a human being. Partially defined by SAREF. HVAC : Heating, Ventilation and Air Conditioning (HVAC) device that provides indoor environmental comfort. https://w3id.org/saref#HVAC. Network : A device used to connect other devices in a network, such as hub, switch or router in a LAN or Sensor network. (https://w3id.org/saref#Network. Multimedia : A device designed to display, store, record or play multimedia content such as audio, images, animation, video. Enum:'actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'. Raw category will be deprecated use deviceCategory instead to avoid conflict with other aqttributes named category
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `configuration`: Device's technical configuration. This attribute is intended to be a array properties and their values which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.
+  - Attribute type: **Property**. [StructuredValue](https://schema.org/StructuredValue)
+  - Optional
+- `controlledAsset`: List of the asset(s) (building, object, etc.) controlled by the device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `controlledProperty`: Anything that can be sensed, measured or controlled by. Enum:'airPollution, atmosphericPressure, averageVelocity, batteryLife, batterySupply, cdom, conductance, conductivity, depth, eatingActivity, electricityConsumption, energy, fillingLevel, freeChlorine, gasConsumption, gateOpening, heading, humidity, light, location, milking, motion, movementActivity, noiseLevel, occupancy, orp, pH, power, precipitation, pressure, refractiveIndex, salinity, smoke, soilMoisture, solarRadiation, speed, tds, temperature, trafficFlow, tss, turbidity, waterConsumption, waterFlow, waterLevel, waterPollution, weatherConditions, weight, windDirection, windSpeed'
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Required
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateFirstUsed`: A timestamp which denotes when the device was first used.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateInstalled`: A timestamp which denotes when the device was installed (if it requires installation).
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateLastCalibration`: A timestamp which denotes when the last calibration of the device happened.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateLastValueReported`: A timestamp which denotes the last time when the device successfully reported data to the cloud.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateManufactured`: A timestamp which denotes when the device was manufactured.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObserved`: Date of the observed entity defined by the user.
+  - Attribute type: **Property**.
+  - Optional
+- `depth`: Location of this device represented by a depth from a starting point. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code
+  - Attribute type: **Property**. [depth](https://schema.org/depth)
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `deviceCategory`: Sensor: A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. https://w3id.org/saref#Sensor. actuator : A device responsible for moving or controlling a mechanism or system. https://w3id.org/saref#Actuator. Meter : A device built to accurately detect and display a quantity in a form readable by a human being. Partially defined by SAREF. HVAC : Heating, Ventilation and Air Conditioning (HVAC) device that provides indoor environmental comfort. https://w3id.org/saref#HVAC. Network : A device used to connect other devices in a network, such as hub, switch or router in a LAN or Sensor network. (https://w3id.org/saref#Network. Multimedia : A device designed to display, store, record or play multimedia content such as audio, images, animation, video. Enum:'actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'. Raw category will be deprecated use deviceCategory instead to avoid conflict with other aqttributes named category
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `deviceState`: State of this device from an operational point of view. Its value can be vendor dependent.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `direction`: Enum:'Inlet, Outlet, Entry, Exit'. A timestamp which denotes when the device was installed (if it requires installation).. One of : `Inlet`, `Outlet`, `Entry`, `Exit`.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `distance`: Location of this device represented by a distance from a starting point. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code
+  - Attribute type: **Property**. [Distance](https://schema.org/Distance)
+  - Optional
+- `dstAware`: Indicates a device which is Daylight Savings Time Aware (True). In case it is then the Timestamp is automatically adjusted by the device to reflect DST changes. If not (False) the time adjustments must be taken care of by the user.
+  - Attribute type: **Property**.
+  - Optional
+- `firmwareVersion`: The firmware version of this device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `hardwareVersion`: The hardware version of this device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `ipAddress`: List of IP address of the device. It can be a comma separated list of values if the device has more than one IP address.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `macAddress`: The MAC address of the device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `mcc`: This property identifies the Mobile Country Code
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `mnc`: This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a 'MCC / MNC tuple') to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile networks.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `osVersion`: The version of the host operating system device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `provider`: The provider of the device.
+  - Attribute type: **Property**. [provider](https://schema.org/provider)
+  - Optional
+- `refDeviceModel`: Model of the device
+  - Attribute type: **Relationship**.
+  - Optional
+- `relativePosition`: Location of this device in a coordinate system according to its local emplacement.
+  - Attribute type: **Property**.
+  - Optional
+- `rssi`: Received signal strength indicator for a wireless enabled device. It must be expressed in dBm or mW, use unitcode to set it out.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `serialNumber`: The serial number assigned by the manufacturer.
+  - Attribute type: **Property**. [serialNumber](https://schema.org/serialNumber)
+  - Optional
+- `softwareVersion`: The software version of this device.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `supportedProtocol`: Supported protocol(s) or networks
+  - Attribute type: **Property**. [3g, bluetooth, bluetooth LE, cat-m, coap, ec-gsm-iot, gprs, http, lwm2m, lora, lte-m, mqtt, nb-iot, onem2m, sigfox, ul20, websocket](3g, bluetooth, bluetooth LE, cat-m, coap, ec-gsm-iot, gprs, http, lwm2m, lora, lte-m, mqtt, nb-iot, onem2m, sigfox, ul20, websocket)
+  - Optional
+- `type`: NGSI Entity type. It has to be Device. One of : `Device`.
+  - Attribute type: **Property**.
+  - Required
+- `value`: A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value 'on' of type 'Text'. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to 'off'.
+  - Attribute type: **Property**. [QuantitativeValue](https://schema.org/QuantitativeValue)
+  - Optional
+
+# TemperatureHumidityPressureSensor
+
+Schema describing the measurements of the temperature, humidity and atmospheric pressure sensor present in each pole.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `airQualityIndex`: Property. Model:'https://schema.org/Number'. Air quality index is a number used to report the quality of the air on any given day.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airQualityIndexForecast`: Property. Model:'https://schema.org/Number'. Forecasted overall Air Quality Index (AQI) over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airTemperatureForecast`: Property. Model:'https://schema.org/Number'. Forecasted value of air temperature over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airTemperatureTSA`: Property. Air temperature time series aggregation
+  - Attribute type: **Property**.
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `aqiMajorPollutant`: Property. Model:'https://schema.org/Text'. Major pollutant in the Air Quality Index (AQI).
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `aqiMajorPollutantForecast`: Property. Model:'https://schema.org/Text'. Forecasted major air pollutant in the Air Quality Index (AQI) over a certain duration in future.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `atmosphericPressure`: The atmospheric pressure observed measured in Hecto Pascals
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObserved`: Date of the observed entity defined by the user.
+  - Attribute type: **Property**.
+  - Required
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `dewPoint`: Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. The dew point encoded as a number. Observed temperature to which air must be cooled to become saturated with water vapor
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `diffuseIrradiation`: Property. Model:'https://schema.org/Number'. Diffuse irradiance is the part of the solar irradiance that is scattered by the atmosphere. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `directIrradiation`: Property. Model:'https://schema.org/Number'. Direct irradiance is the part of the solar irradiance that directly reaches a surface. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `feelLikesTemperature`: Temperature appreciation of the item
+  - Attribute type: **Property**.
+  - Optional
+- `gustSpeed`: A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `illuminance`: Property. Observed instantaneous ambient light intensity. Units:'Lux'
+  - Attribute type: **Property**.
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `precipitation`: Property. Model:'https://schema.org/Number'. Amount of water rain registered. Units:'Liters per square meter'.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `precipitationForecast`: Property. Model:'https://schema.org/Number'. Forecasted rainfall over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `pressureTendency`: Property. Enum:'falling, raising, steady'. Is the pressure rising or falling? It can be expressed in quantitative terms or qualitative terms.
+  - Attribute type: **Property**.
+  - Optional
+- `refDevice`: Relationship. Model:'https://schema.org/URL'. A reference to the device(s) which captured this observation.
+  - Attribute type: **Relationship**. [URL](https://schema.org/URL)
+  - Optional
+- `refPointOfInterest`: Point of interest related to the item
+  - Attribute type: **Relationship**. [URL](http://schema.org/URL)
+  - Optional
+- `relativeHumidity`: Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)
+  - Attribute type: **Property**.
+  - Optional
+- `relativeHumidityForecast`: Property. Model:'https://schema.org/Number'. Forecasted relative humidity (water vapour in air) over a certain duration in future
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `snowHeight`: Property. Model:'https://schema.org/Number'. The snow height observed by generic snow depth measurement sensors, expressed in centimeters. Units:'centimeters'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `solarRadiation`: Property. Model:'https://schema.org/Number'. The solar radiation observed measured in Watts per square. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `streamGauge`: Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors, namely a [Stream Gauge](https://en.wikipedia.org/wiki/Stream_gauge) expressed in centimeters. Units:'centimeters'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `temperature`: Temperature of the item
+  - Attribute type: **Property**.
+  - Optional
+- `type`: Property. NGSI Entity type. It has to be WeatherObserved. One of : `WeatherObserved`.
+  - Attribute type: **Property**.
+  - Required
+- `uVIndexMax`: Property. Model:'https://schema.org/Number'. The maximum UV index for the period, based on the World Health Organization's UV Index measure. [http://www.who.int/uv/intersunprogramme/activities/uv_index/en/](http://www.who.int/uv/intersunprogramme/activities/uv_index/en/) the values between 1 and 11 are the valid range for the index. The value 0 is for describing that no signal is detected so no value is stored.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `visibility`: Categories of visibility
+  - Attribute type: **Property**. [Text](http://schema.org/Text)
+  - Optional
+- `weatherType`: Text description of the weather
+  - Attribute type: **Property**. [Text.](http://schema.org/Text.)
+  - Optional
+- `windDirection`: Direction of the wind bet
+  - Attribute type: **Property**. [Number](http://schema.org/Number)
+  - Optional
+- `windSpeed`: Intensity of the wind
+  - Attribute type: **Property**. [Number](http//schema.org/Number)
+  - Optional
+
+# BrightnessSensor
+
+Schema describing the measurements of the brightness sensor present on each pole.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `airQualityIndex`: Property. Model:'https://schema.org/Number'. Air quality index is a number used to report the quality of the air on any given day.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airQualityIndexForecast`: Property. Model:'https://schema.org/Number'. Forecasted overall Air Quality Index (AQI) over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airTemperatureForecast`: Property. Model:'https://schema.org/Number'. Forecasted value of air temperature over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `airTemperatureTSA`: Property. Air temperature time series aggregation
+  - Attribute type: **Property**.
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `aqiMajorPollutant`: Property. Model:'https://schema.org/Text'. Major pollutant in the Air Quality Index (AQI).
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `aqiMajorPollutantForecast`: Property. Model:'https://schema.org/Text'. Forecasted major air pollutant in the Air Quality Index (AQI) over a certain duration in future.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `atmosphericPressure`: The atmospheric pressure observed measured in Hecto Pascals
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObserved`: Date of the observed entity defined by the user.
+  - Attribute type: **Property**.
+  - Required
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `dewPoint`: Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. The dew point encoded as a number. Observed temperature to which air must be cooled to become saturated with water vapor
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `diffuseIrradiation`: Property. Model:'https://schema.org/Number'. Diffuse irradiance is the part of the solar irradiance that is scattered by the atmosphere. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `directIrradiation`: Property. Model:'https://schema.org/Number'. Direct irradiance is the part of the solar irradiance that directly reaches a surface. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `feelLikesTemperature`: Temperature appreciation of the item
+  - Attribute type: **Property**.
+  - Optional
+- `gustSpeed`: A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds.
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `illuminance`: Property. Observed instantaneous ambient light intensity. Units:'Lux'
+  - Attribute type: **Property**.
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `precipitation`: Property. Model:'https://schema.org/Number'. Amount of water rain registered. Units:'Liters per square meter'.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `precipitationForecast`: Property. Model:'https://schema.org/Number'. Forecasted rainfall over a certain duration in future.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `pressureTendency`: Property. Enum:'falling, raising, steady'. Is the pressure rising or falling? It can be expressed in quantitative terms or qualitative terms.
+  - Attribute type: **Property**.
+  - Optional
+- `refDevice`: Relationship. Model:'https://schema.org/URL'. A reference to the device(s) which captured this observation.
+  - Attribute type: **Relationship**. [URL](https://schema.org/URL)
+  - Optional
+- `refPointOfInterest`: Point of interest related to the item
+  - Attribute type: **Relationship**. [URL](http://schema.org/URL)
+  - Optional
+- `relativeHumidity`: Humidity in the Air. Observed instantaneous relative humidity (water vapour in air)
+  - Attribute type: **Property**.
+  - Optional
+- `relativeHumidityForecast`: Property. Model:'https://schema.org/Number'. Forecasted relative humidity (water vapour in air) over a certain duration in future
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `snowHeight`: Property. Model:'https://schema.org/Number'. The snow height observed by generic snow depth measurement sensors, expressed in centimeters. Units:'centimeters'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `solarRadiation`: Property. Model:'https://schema.org/Number'. The solar radiation observed measured in Watts per square. Units:'w/m2'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `streamGauge`: Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors, namely a [Stream Gauge](https://en.wikipedia.org/wiki/Stream_gauge) expressed in centimeters. Units:'centimeters'
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `temperature`: Temperature of the item
+  - Attribute type: **Property**.
+  - Optional
+- `type`: Property. NGSI Entity type. It has to be WeatherObserved. One of : `WeatherObserved`.
+  - Attribute type: **Property**.
+  - Required
+- `uVIndexMax`: Property. Model:'https://schema.org/Number'. The maximum UV index for the period, based on the World Health Organization's UV Index measure. [http://www.who.int/uv/intersunprogramme/activities/uv_index/en/](http://www.who.int/uv/intersunprogramme/activities/uv_index/en/) the values between 1 and 11 are the valid range for the index. The value 0 is for describing that no signal is detected so no value is stored.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `visibility`: Categories of visibility
+  - Attribute type: **Property**. [Text](http://schema.org/Text)
+  - Optional
+- `weatherType`: Text description of the weather
+  - Attribute type: **Property**. [Text.](http://schema.org/Text.)
+  - Optional
+- `windDirection`: Direction of the wind bet
+  - Attribute type: **Property**. [Number](http://schema.org/Number)
+  - Optional
+- `windSpeed`: Intensity of the wind
+  - Attribute type: **Property**. [Number](http//schema.org/Number)
+  - Optional
+
+# VehicleSensor
+
+Schema related to measurements associated with vehicle flow at the crosswalk.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `averageGapDistance`: Average gap distance between consecutive 2 detected items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **MTR** represents Meter.
+  - Attribute type: **Property**.
+  - Optional
+- `averageHeadwayTime`: Average headway time. Head away time is the time elapsed between two consecutive items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **SEC** represents Second.
+  - Attribute type: **Property**.
+  - Optional
+- `averageLength`: Average length of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . For instance, **MTR** represents Meter.
+  - Attribute type: **Property**.
+  - Optional
+- `averageSpeed`: Average speed of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** f(vehicule, pedestrian, etc.) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `congested`: Flags whether there was a crowd congestion during the observation period in the referred walkway. The absence of this attribute means no crowd congestion
+  - Attribute type: **Property**.
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObserved`: Date of the observed entity defined by the user.
+  - Attribute type: **Property**.
+  - Required
+- `dateObservedFrom`: Observation period : Start date and time in an ISO8601 UTC format.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObservedTo`: Observation period : End date and time in an ISO8601 UTC format.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `intensity`: Total number of items detected during this observation period
+  - Attribute type: **Property**.
+  - Optional
+- `itemSubType`: Reference to an identifier of an existing 'subType' attribute of an NGSI entity (Vehicle / BoatType / Person ) or of a future entity listing an item 'subType' to be counted.
+  - Attribute type: **Property**.
+  - Optional
+- `itemType`: Reference to an identifier of an existing 'Type' attribute of an NGSI entity (Vehicle / BoatType / Person) or of a future entity listing an item 'Type' to be counted. Enum:'people, ship, vehicle, yacht'. One of : `people`, `ship`, `vehicle`, `yacht`.
+  - Attribute type: **Property**.
+  - Optional
+- `laneDirection`: Usual direction of travel in the lane referred by this observation. This attribute is useful when the observation is not referencing any road segment, allowing to know the direction of travel of the traffic flow observed. See RoadSegment for a description of the semantics of these values.. One of : `forward`, `backward`, `inbound`, `outbound`, `right`, `left`.
+  - Attribute type: **Property**.
+  - Optional
+- `laneId`: Lane identifier. Lane identification is done using the conventions defined by RoadSegment entity which are based on [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Forward_%26_backward,_left_%26_right).
+  - Attribute type: **Property**.
+  - Required
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `occupancy`: Fraction of the observation time where a item has been occupying the observed lane
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `refDevice`: The device or devices used to obtain the data expressed by this record
+  - Attribute type: **Relationship**.
+  - Optional
+- `refRoadSegment`: Concerned road segment on which the observation has been made
+  - Attribute type: **Relationship**.
+  - Optional
+- `reversedLane`: Flags whether traffic in the lane was reversed during the observation period. The absence of this attribute means no lane reversion
+  - Attribute type: **Property**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `speedMax`: Maximum speed detected during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** (vehicule, pedestrian, ...) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `speedMin`: Minimum speed detected during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** (vehicule, pedestrian, ...) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `type`: NGSI Entity type. It has to be ItemFlowObserved. One of : `ItemFlowObserved`.
+  - Attribute type: **Property**.
+  - Required
+
+# PedestrianSensor
+
+Schema related to measurements associated with pedestrian flow at the crosswalk.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `averageGapDistance`: Average gap distance between consecutive 2 detected items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **MTR** represents Meter.
+  - Attribute type: **Property**.
+  - Optional
+- `averageHeadwayTime`: Average headway time. Head away time is the time elapsed between two consecutive items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **SEC** represents Second.
+  - Attribute type: **Property**.
+  - Optional
+- `averageLength`: Average length of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . For instance, **MTR** represents Meter.
+  - Attribute type: **Property**.
+  - Optional
+- `averageSpeed`: Average speed of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** f(vehicule, pedestrian, etc.) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `congested`: Flags whether there was a crowd congestion during the observation period in the referred walkway. The absence of this attribute means no crowd congestion
+  - Attribute type: **Property**.
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObserved`: Date of the observed entity defined by the user.
+  - Attribute type: **Property**.
+  - Required
+- `dateObservedFrom`: Observation period : Start date and time in an ISO8601 UTC format.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObservedTo`: Observation period : End date and time in an ISO8601 UTC format.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `intensity`: Total number of items detected during this observation period
+  - Attribute type: **Property**.
+  - Optional
+- `itemSubType`: Reference to an identifier of an existing 'subType' attribute of an NGSI entity (Vehicle / BoatType / Person ) or of a future entity listing an item 'subType' to be counted.
+  - Attribute type: **Property**.
+  - Optional
+- `itemType`: Reference to an identifier of an existing 'Type' attribute of an NGSI entity (Vehicle / BoatType / Person) or of a future entity listing an item 'Type' to be counted. Enum:'people, ship, vehicle, yacht'. One of : `people`, `ship`, `vehicle`, `yacht`.
+  - Attribute type: **Property**.
+  - Optional
+- `laneDirection`: Usual direction of travel in the lane referred by this observation. This attribute is useful when the observation is not referencing any road segment, allowing to know the direction of travel of the traffic flow observed. See RoadSegment for a description of the semantics of these values.. One of : `forward`, `backward`, `inbound`, `outbound`, `right`, `left`.
+  - Attribute type: **Property**.
+  - Optional
+- `laneId`: Lane identifier. Lane identification is done using the conventions defined by RoadSegment entity which are based on [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Forward_%26_backward,_left_%26_right).
+  - Attribute type: **Property**.
+  - Required
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `occupancy`: Fraction of the observation time where a item has been occupying the observed lane
+  - Attribute type: **Property**.
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `refDevice`: The device or devices used to obtain the data expressed by this record
+  - Attribute type: **Relationship**.
+  - Optional
+- `refRoadSegment`: Concerned road segment on which the observation has been made
+  - Attribute type: **Relationship**.
+  - Optional
+- `reversedLane`: Flags whether traffic in the lane was reversed during the observation period. The absence of this attribute means no lane reversion
+  - Attribute type: **Property**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `speedMax`: Maximum speed detected during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** (vehicule, pedestrian, ...) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `speedMin`: Minimum speed detected during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** (vehicule, pedestrian, ...) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat).
+  - Attribute type: **Property**.
+  - Optional
+- `type`: NGSI Entity type. It has to be ItemFlowObserved. One of : `ItemFlowObserved`.
+  - Attribute type: **Property**.
+  - Required
+
+# AccidentSensor
+
+Schema that describes an accident that occurred on a crosswalk. At the moment, only significant pole impacts are detected.
+
+- `accidentDate`: Datetime of the accident
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `accidentDescription`: Description about this Road Accident as a combination of codified situation enlisted. 0: Unspecified circumstance; 1: Driver proceeded regularly without turning; 2: Driver proceeded with a distracted driving or undecided course; 3: Driver proceeded without maintaining a safe distance; 4: Driver proceeded without giving priority to the vehicle coming from the right; 5: Driver proceeded without respecting the stop; 6: Driver proceeded without respecting the signal to give precedence; 7: Driver proceeded against traffic; 8: Driver proceeded without respecting the traffic light or agent signals; 10: Driver proceeded without respecting the signs of prohibition of transit or access; 11: Driver proceeded with speeding; 12: Driver proceeded without respecting the speed limits; 13: Driver proceeded with the dazzling lights crossing other vehicles; 14: Driver turned right regularly; 15: It turned irregularly to the right; 16: Driver turned left regularly; 17: It turned irregularly to the left; 18: Driver passed at the intersection; 20: Driver proceeded regularly; 21: Driver proceeded with a distracted driving or undecided course; 22: Driver proceeded without maintaining a safe distance; 23: Driver proceeded with speeding; 24: Driver proceeded without respecting the speed limits; 25: It proceeded not near the right edge of the roadway; 26: Driver proceeded against traffic; 27: Driver proceeded without respecting the signs of prohibition of transit or access; 28: Driver proceeded with the dazzling lights crossing other vehicles; 29: Driver passed regularly; 30: It passed irregularly to the right; 31: Driver overtook on a curve, on a hill or with insufficient visibility; 32: It overtook a vehicle that was overtaking another; 33: Driver passed without observing the appropriate prohibition sign; 34: Maneuvered in relegation or conversion; 35: Driver maneuvered to get into the flow of circulation; 36: Maneuvering To turn left (private passage, distributor); 37: Driver maneuvered regularly to stop or stop; 38: Driver maneuvered irregularly to stop or stop; 39: It was joined by other irregular two-wheeled vehicles; 40: Driver proceeded regularly; 41: Driver proceeded with speeding; 42: Driver proceeded without respecting the speed limits; 43: Driver proceeded against traffic; 44: Driver passed the vehicle in gear; 45: Maneuvered; 46: Maneuvered without respecting traffic light or agent signals; 47: Driver came out of the driveway without precaution; 48: Driver stepped out of the lane and hit the pawn; 49: It did not give priority to the pedestrian on the appropriate crossings; 50: It overtook a vehicle stopped to allow the crossing; 51: Driver hit the pedestrian with the load; 52: Driver was passing a tram unevenly at the stop; 60: Driver proceeded regularly; 61: Driver proceeded with a distracted driving or undecided course; 62: Driver proceeded without maintaining a safe distance; 63: Driver proceeded against traffic; 64: Driver proceeded with speeding; 65: Driver proceeded without respecting the speed limits; 66: Driver proceeded without respecting the signs of prohibition of transit or access; 67: Driver was passing another vehicle in gear; 68: Driver imprudently crossed the level crossing; 70: Spill with spillage to avoid impact; 71: Listening with spillage for distracted driving; 72: List with over-speed spill; 73: Driver suddenly braked with consequence to the transported; 74: Fall of person from vehicle for: door opening; 75: Fall of person from vehicle for: descent from vehicle in motion; 76: Fall of person from vehicle due to: clinging or improperly placed; 80: Brake failure or failure; 81: Breakage or steering failure; 82: Tire burst or excessive wear; 83: Lack or insufficiency of headlights or position lights; 84: Lack or insufficiency of flashing lights or stopping light signals; 85: Breaking of trailer coupling parts; 86: Deficiency of dangerous goods transport equipment; 87: Deficiency of the adaptations prescribed to vehicles of physically handicapped people; 88: Wheel detachment; 89: Lack or insufficiency of visual devices for cycles
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `accidentLocation`: Brief description if the accident took place in a urban or extra-urban area. 0: Regional within the urban area 1: Urban road in the town 2: Provincial road within the town 3: State road within the village 4: Extra-urban road 5: Provincial 6: State road 7: Highway 8: Another way 9: Regional road. One of : `, `, `, `, `, `, `, `, `, `.
+  - Attribute type: **Property**.
+  - Optional
+- `accidentStatisticalDate`: approximate datetime of the accident (often original accident data source reports only statistical attributes such as season, weekday and approximate hour
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `accidentType`: Quick classification this Road Accident. 1: Frontal collision; 2: Frontal-lateral collision; 3: Side crash; 4: Collision; 5: Pedestrian investment; 6: Impact with vehicle stopped or stopped; 7: Impact with parked vehicle; 8: Impact with obstacle; 9: Impact with train; 10: Spill, slip; 11: Accident due to sudden braking; 12: Accident due to falling from a vehicle;.
+  - Attribute type: **Property**.
+  - Optional
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `localId`: Unique identifier from the source data set
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `numPassengersDead`: Number of vehicle's passengers dead because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `numPassengersInjured`: Number of vehicle's passengers injured because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `numPedestrianDead`: Number of pedestrians dead because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `numPedestrianInjured`: Number of pedestrians injured because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `pedestriansInvolved`: Boolean to determine if pedestrians were involved in the accidents
+  - Attribute type: **Property**.
+  - Optional
+- `roadClass`: The classification of road where this accident took place
+  - Attribute type: **Property**. [Key:highway](https://wiki.openstreetmap.org/wiki/Key:highway)
+  - Optional
+- `roadIntersection`: Brief description of the piece of the road where the accident took place. 1: Crossroad; 2: Roundabout; 3: Reported intersection; 4: Intersection with traffic light; 5: Intersection not reported; 6: Rail crossing; 7: Straight; 8: Curve; 9: Bump, bottleneck; 10: Slope; 11: Illuminated gallery; 12: Unlit gallery;. One of : `, `, `, `, `, `, `, `, `, `, `, `.
+  - Attribute type: **Property**.
+  - Optional
+- `roadPaving`: Road paving. 1: Paved road; 2: Rough paved road; 3: Unpaved road;. One of : `, `, ``.
+  - Attribute type: **Property**.
+  - Optional
+- `roadSign`: Brief description of the road sign where the accident took place. 1: Absent; 2: Vertical; 3: Horizontal; 4: Vertical and horizontal; 5: Temporary by construction site;. One of : `, `, `, `, ``.
+  - Attribute type: **Property**.
+  - Optional
+- `roadSurface`: Brief description of the condition of the road during the accident. 1: Dry; 2: Wet; 3: Slippery; 4: frozen; 5: Snowcapped;. One of : `, `, `, `, ``.
+  - Attribute type: **Property**.
+  - Optional
+- `roadTrunk`: Brief description of type of trunk of the road where the accident took place. 1: Road branch; 2: Secondary branch; 3: Minor branch; 4: Junction branch; 5: Road junction; 6: Motorway left lane; 7: Highway carriageway right; 8: Motorway junction entrance; 9: Highway exit junction; 10: Highway junction trunk; 11: Highway station; 12: Other cases; 15: Extra urban road.. One of : `, `, `, `, `, `, `, `, `, `, `, `, ``.
+  - Attribute type: **Property**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `status`: Status of the Road Accident. Enum:'archived, onGoing, solved'. One of : `archived`, `onGoing`, `solved`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Required
+- `totalDeadPeopleWithin24Hours`: Number of people dead directly because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `totalDeadPeopleWithin30Days`: Number of people dead because the aftermath of the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `totalInjured`: total number of people injured (not dead) because the accident
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `type`: NGSI Entity type. it has to be RoadAccident. One of : `RoadAccident`.
+  - Attribute type: **Property**.
+  - Required
+- `vehiclesInvolved`: List of the vehicles (and pedestrians) involved because the accident 0 : pedestrian 1 : bicycle 2 : agriculturalVehicle 3 : bus 4 : minibus 5 : car 6 : caravan 7 : tram 8 : tanker 9 : carWithCaravan 10 : carWithTrailer 11 : lorry 12 : moped 13 : tanker 14 : motorcycle 15 : motorcycleWithSideCar 16 : motorscooter 17 : trailer 18 : van 19 : caravan 20 : constructionOrMaintenanceVehicle 21 : trolley 22 : binTrolley 23 : sweepingMachine 24 : cleaningTrolley
+  - Attribute type: **Property**.
+  - Optional
+- `weakestSubject`: vehicle that represent the weakest subject involved because the accident (usually pedestrian). 0 : pedestrian 1 : bicycle 2 : agriculturalVehicle 3 : bus 4 : minibus 5 : car 6 : caravan 7 : tram 8 : tanker 9 : carWithCaravan 10 : carWithTrailer 11 : lorry 12 : moped 13 : tanker 14 : motorcycle 15 : motorcycleWithSideCar 16 : motorscooter 17 : trailer 18 : van 19 : caravan 20 : constructionOrMaintenanceVehicle 21 : trolley 22 : binTrolley 23 : sweepingMachine 24 : cleaningTrolley. One of : `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, `, ``.
+  - Attribute type: **Property**.
+  - Optional
+- `weatherConditions`: Brief description of weather conditions during this Road Accident. 0 : clearNight 1 : sunnyDay 2 : slightlyCloudy 3 : partlyCloudy 4 : mist 5 : fog 6 : highClouds 7 : cloudy 8 : veryCloudy 9 : overcast 10 : lightRainShower 11 : drizzle 12 : lightRain 13 : heavyRainShower 14 : heavyRain 15 : sleetShower 16 : sleet 17 : hailShower 18 : hail 19 : shower 20 : lightSnow 21 : snow 22 : heavySnowShower 23 : heavySnow 24 : thunderShower 25 : thunder
+  - Attribute type: **Property**.
+  - Optional
+- `refDevice`:
+  - Attribute type: **Property**.
+  - Required
+
+# LuminaireModel
+
+Schema describing the luminaire present on each pole.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `annotations`: Annotations about the item
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `category`: Type of asset which implements the street light. Enum:'`postTop, bollard, lamppost, lightTower, flashingBeacon, sideEntry, signLight, ornamentalLantern'. Or any other value not defined above and meaningful for the application
+  - Attribute type: **Property**.
+  - Optional
+- `color`: The color of the product
+  - Attribute type: **Property**. [color](https://schema.org/color)
+  - Optional
+- `colorRenderingIndex`: Color rendering index of the lamp
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `colorTemperature`: Correlated color temperature of the lamp
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `columnBrandName`: Name of the column's brand
+  - Attribute type: **Property**. [brand.](https://schema.org/brand.)
+  - Optional
+- `columnColor`: Column's painting color. Allowed Values: A color keyword as specified by [W3C Color Keywords](https://www.w3.org/TR/SVG/types.html#ColorKeywords). A color value as specified by [W3C Color Data Type](https://www.w3.org/TR/SVG/types.html#BasicDataTypes)
+  - Attribute type: **Property**. [color](https://schema.org/color)
+  - Optional
+- `columnMadeOf`: Material column is made of. Enum:'steel, aluminium, wood, other'. One of : `steel`, `aluminium`, `wood`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `columnManufacturerName`: Name of the column's manufacturer
+  - Attribute type: **Property**. [manufacturer](https://schema.org/manufacturer)
+  - Optional
+- `columnModelName`: Name of the column's model
+  - Attribute type: **Property**. [model](https://schema.org/model)
+  - Optional
+- `compliantWith`: A list of standards to which this streetlight model is compliant with
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `image`: An image of the item
+  - Attribute type: **Property**. [URL](https://schema.org/URL)
+  - Optional
+- `lampBrandName`: Name of the lamp's brand
+  - Attribute type: **Property**. [brand](https://schema.org/brand)
+  - Optional
+- `lampManufacturerName`: Name of the lamp's manufacturer.
+  - Attribute type: **Property**.
+  - Optional
+- `lampModelName`: Name of the lamp's model
+  - Attribute type: **Property**. [model](https://schema.org/model)
+  - Optional
+- `lampTechnology`: Technology used by the lamp. Enum:'LED, LPS, HPS'. Or any other value not covered by the above list and meaningful to the application.. One of : `LED`, `LPS`, `HPS`.
+  - Attribute type: **Property**.
+  - Optional
+- `lampWeight`: Lamp's weight
+  - Attribute type: **Property**. [Kilograms (kg)](Kilograms "kg")
+  - Optional
+- `lanternBrandName`: Name of the lantern's brand
+  - Attribute type: **Property**. [brand](https://schema.org/brand)
+  - Optional
+- `lanternManufacturerName`: Name of the lantern's manufacturer
+  - Attribute type: **Property**. [manufacturer](https://schema.org/manufacturer)
+  - Optional
+- `lanternModelName`: Name of the lantern's model
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `lanternWeight`: Lantern's weight
+  - Attribute type: **Property**. [weight](https://schema.org/weight)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Optional
+- `luminousFlux`: Maximum light output which can be provided by the lamp
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `maxPowerConsumption`: Maximum power consumption supported by the lantern
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `minPowerConsumption`: Minimum power consumption supported by the lantern
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Required
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `powerConsumption`: (Nominal) power consumption made by the lamp
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `type`: NGSI Entity type. It has to be StreetlightModel. One of : `StreetlightModel`.
+  - Attribute type: **Property**.
+  - Required
+- `workingLife`: The estimated number of hours working (the lamp) without failure
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+
+# Luminaire
+
+Schema that holds the status of the luminaire present on each pole.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `annotations`: Annotations about the item
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `circuit`: The circuit to which this streetlight connects to and gets power from. Typically it will contain an identifier that will allow to obtain more information about such circuit.
+  - Attribute type: **Property**.
+  - Optional
+- `color`: The color of the product
+  - Attribute type: **Property**. [color](https://schema.org/color)
+  - Optional
+- `controllingMethod`: The method used to control this streetlight. Enum:'group, individual'.. One of : `group`, `individual`.
+  - Attribute type: **Property**.
+  - Optional
+- `current`: Current value of the streetlight corresponding to this observation.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateLastLampChange`: Timestamp of the last change of lamp made
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateLastSwitchingOff`: Timestamp of the last switching off
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateLastSwitchingOn`: Timestamp of the last switching on
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateServiceStarted`: Date at which the streetlight started giving service
+  - Attribute type: **Property**. [Date](https://schema.org/Date)
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `deviceInfo`: Information about the device associated with the observations.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `feederID`: Unique ID of the streetlight feeder panel associated with the streetlight corresponding to this observation.
+  - Attribute type: **Relationship**. [Text](https://schema.org/Text)
+  - Optional
+- `feederPillarNum`: Streetlight feeder pillar information associated with the streetlight corresponding to this observation.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `illuminanceLevel`: Relative illuminance level setting. A number between 0 and 1.
+  - Attribute type: **Property**.
+  - Optional
+- `image`: A URL containing a photo of the streetlight
+  - Attribute type: **Relationship**. [image](https://schema.org/image)
+  - Optional
+- `lanternHeight`: Lantern's height. In columns with many arms this can vary between streetlights. Another variation source of this property are wall-mounted streetlights.
+  - Attribute type: **Property**.
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `locationCategory`: Category of the location where the streetlight is placed. Enum:'bridge, centralIsland, facade, garden, park, parking, pedestrianPath, playground, road, sidewalk, tunnel'. One of : `bridge`, `centralIsland`, `facade`, `garden`, `park`, `parking`, `pedestrianPath`, `playground`, `road`, `sidewalk`, `tunnel`.
+  - Attribute type: **Property**.
+  - Optional
+- `municipalityInfo`: Municipality information corresponding to this observation.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `observationDateTime`: Last reported time of observation.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `powerConsumption`: Power consumed by the LED or the streetlight bulb corresponding to this observation.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `powerFactor`: Power factor or the ratio of working power of the streetlight corresponding to this observation.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `powerRating`: Power rating of the LED or the streetlight bulb corresponding to this observation.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `powerState`: Streetlight's power state. Enum:'bootingUp, low, off, on'. One of : `bootingUp`, `low`, `off`, `on`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `refDevice`: Reference to the device(s) used to monitor this streetligth. List of Reference to entity(ies) of type Device.
+  - Attribute type: **Relationship**.
+  - Optional
+- `refStreetlightControlCabinet`: If this streetlight is individually controlled, reference to the control cabinet in charge of.
+  - Attribute type: **Relationship**.
+  - Optional
+- `refStreetlightGroup`: Streetlight's group, if this streetlight belongs to any group.
+  - Attribute type: **Relationship**.
+  - Optional
+- `refStreetlightModel`: Streetlight's model.
+  - Attribute type: **Relationship**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `status`: The overall status of this street light. Enum:'brokenLantern, columnIssue, defectiveLamp, ok'. One of : `brokenLantern`, `columnIssue`, `defectiveLamp`, `ok`.
+  - Attribute type: **Property**.
+  - Required
+- `streetPoleNum`: Street pole information associated with the streetlight corresponding to this observation.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `type`: NGSI Entity type. It has to be Streetlight. One of : `Streetlight`.
+  - Attribute type: **Property**.
+  - Required
+- `voltage`: Voltage value of the streetlight corresponding to this observation.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+
+# BatteryModel
+
+Schema describing the battery that will store the solar energy and will power each pole.
+
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `application`: Enum:'electricMobility, energyStorage, emergencyStorage, houseHoldStorage, industrialStorage, lighting, production, robotics, other'. Target application of the Device regarding the storage. A combination of the enumeration.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `averageLife`: average life under normal battery usage conditions at reference temperatures. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **ANN** represents Year
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `batteryAssessmentMethods`: Enum:'ampereHourMeter, dischargeTest, electrolyteDensity, highFrequencyImpedance, lowFrequencyImpedance, mathematicalModel, operatingVoltageWithClosedCircuit, quiescentVoltageWithOpenCircuit'.. One of : `ampereHourMeter`, `dischargeTest`, `electrolyteDensity`, `highFrequencyImpedance`, `lowFrequencyImpedance`, `mathematicalModel`, `operatingVoltageWithClosedCircuit`, `quiescentVoltageWithOpenCircuit`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `batteryType`: Enum:'alkaline, gel, lead, lead-AGM, Li-Ion, Li-Po, Li-Po4, LMP, Li-Air, Na-NiCl2(Zebra), Ni-Cd, Ni-MH, Ni-Zn, other'. Type of battery used.. One of : `alkaline`, `gel`, `lead`, `lead-AGM`, `Li-Ion`, `Li-Po`, `Li-Po4`, `LMP`, `Li-Air`, `Na-NiCl2(Zebra)`, `Ni-Cd`, `Ni-MH`, `Ni-Zn`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Required
+- `brandName`: Brand Name of the item.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `capacityCnnn`: Remaining energy as a function of the discharge time for 6 keys according the temperature of reference. Each Key is a structured value with the format {`Cnnn`:[`value1`,`value2`]} describing the different measurement of [CapacityCnnn].
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `chargeDischargeReactivity`: Charge and Discharge Reactivity which characterizes the reactive behavior of the system. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **SEC** represents Second
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `chargeEfficiency`: Charge Efficiency _(code PV-BAT)_. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `chargePower`: Load Power. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `chargingModeAllowed`: Charging mode permitted to avoid damage to the battery. enum:'fast, normal, quick'
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `communication`: List of communication protocol with others device depending manufacturers. Enum:'CAN 2.0 B, dryContactTerminal, maintenanceInterface, RS485, RS485BMS, RS485Inverter, other'
+  - Attribute type: **Property**. [](https://schema.org/)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateLastReported`: A timestamp which denotes the last time when the device successfully reported data. Date and time in an ISO8601 UTCformat.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Required
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `dimension`: External dimension of a Panel. The format is structured by a sub-property of 3 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CMT** represents Centimeter
+  - Attribute type: **Property**.
+  - Optional
+- `dischargeEfficiency`: Discharge Efficiency _(code PV-OND)_. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dischargePower`: Discharge Power. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `documentation`: Technical Documentation (Installation / maintenance / use).
+  - Attribute type: **Property**. [URL](https://schema.org/URL)
+  - Optional
+- `durationPeakPower`: Reference Time recorded for the attribute [peakPower]. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **SEC** represents Second
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `installationCondition`: Enum:'desert, dust, extremeClimate, extremeCold, extremeHeat, extremeHumidity, marine, saline, sand, seismic, other'. Condition and possibility of use in the following environments.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `installationMode`: Enum:'aerial, ground, pole, roofing, underGround, wall, other'. Positioning of the device in relation to a ground reference system.. One of : `aerial`, `ground`, `pole`, `roofing`, `underGround`, `wall`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `lifeCycleNumber`: Number of admissible charge / discharge life cycles. The format is structured by a sub-property of 2 items.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `manufacturerName`: Manufacturer Name of the item.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `massEnergyDensity`: Mass Energy density _(Code D)_. Ratio between the capacity of the battery to deliver a certain power for a certain time and its weight. The format is structured by a sub-property of 2 items. The unit code (text) of measurement is **Wh/Kg** WattHour per Kilogram
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `maxOutputPower`: Maximum Power. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KWT** represents Kilowatt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `maximumVoltageEOC`: Maximum authorized voltage after end of charge and Battery still connected to to a charge generator. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `minimumVoltageEOD`: Minimum voltage after end of discharge and not connected to to a charge generator. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `modelName`: Model Name of the item.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `nominalAmpere`: Nominal Amperage. _(Code I)_. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **AMP** represents Ampere
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `nominalCapacity`: Nominal Energy capacity. _(Code C)_ to link with the attribute [CapacityCnnn] to measure the predefined levels parameters C / xx h of discharge regimes. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **AMH** represents Ampere Hour
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `nominalFrequency`: Nominal Frequency. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **HTZ** represents Hertz
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `nominalVoltage`: Nominal battery voltage. _(Code U)_ The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `operatingAltitude`: Operating altitude with minimum and maximum resistance to height and depth. The format is structured by a sub-property of 2 items with the keys [min] =<0 and [max] >=0. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **MTR** represents Meter
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `operatingAmpere`: Minimum and Maximum Ampere allowed. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **AMP** represents Ampere
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `operatingFrequency`: Minimum and Maximum frequency allowed. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **HTZ** represents Hertz
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `operatingTemperature`: Ambient operating temperature range. This is the minimum and maximum resistance to cold and heat for an [event]. The format is structured by a sub-property of 3 items with the format {`event`:[`min`,`max`]}. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CEL** represents Degree Celsius
+  - Attribute type: **Property**.
+  - Optional
+- `operatingVoltage`: Minimum and Maximum voltage allowed. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `overloadAccepted`: Overload is permitted after exceeding the threshold.(`true` for yes)
+  - Attribute type: **Property**. [Boolean](https://schema.org/Boolean)
+  - Optional
+- `overloadAcceptedTime`: Accepted overcharge time without damage to the battery.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `peakPower`: Maximum intensity extractable over a short period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KWT** represents Kilowatt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `possibilityOfUse`: Possibility of use. A unique value. Enum:'mobile, mixed, stationary, other'.. One of : `mobile`, `mixed`, `stationary`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `protectionIK`: IK 'Mecanic Protection' level relating to numeric classification for the degrees of protection provided by enclosures for electrical equipment against external mechanical impacts, according to International Electro technical Commission standard (EN 62-262). - IK varies from 0 (minimum resistance) to 10 (maximum resistance) which represents an Impact Energy (Unit Joule)
+  - Attribute type: **Property**. [Number.](https://schema.org/Number.)
+  - Optional
+- `protectionIP`: IP _Ingress Protection_ for the Junction Box. This is the level classifies and rates the degree of protection provided by mechanical casings and electrical enclosures against intrusion, dust, accidental contact, and water according to International Electrotechnical Commission standard (EN 60-529). - First digit: Solid particle protection (Single numeral: 0–6 or 'X'). - Second digit: Liquid ingress protection (Single numeral: 0–9 or 'X'). - Third digit: Personal Protection against access to dangerous parts (optional additional letter). - Fourth digit: Other protections (optional additional letter)
+  - Attribute type: **Property**. [IP_Code.](https://en.wikipedia.org/wiki/IP_Code.)
+  - Optional
+- `rechargeEnergySource`: Enum:'electric, hydraulic, windTurbine, other'. Recharge Energy Source. A unique value of the list. One of : `electric`, `hydraulic`, `windTurbine`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Required
+- `refDevice`: Reference to the Main Entity [Device](https://github.com/smart-data-models/dataModel.Device/blob/master/Device/doc/spec.md) if used as second link.
+  - Attribute type: **Relationship**. [URL](https://schema.org/URL)
+  - Optional
+- `refPointOfInterest`: Reference to a [PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/PointOfInterest/doc/spec.md) linked with the observation.
+  - Attribute type: **Property**. [URL](https://schema.org/URL)
+  - Optional
+- `roundTripEfficiency`: Round-Trip Efficiency. Efficiency, defined as the ratio between stored energy and returned energy. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `selfDischargeRate`: Battery discharge rate without any use on a baseline of 1 month according the [temperature of reference]. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percentage.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `serialNumber`: Serial numbers of the item.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `storableEnergy`: Total Storage Energy = [nominalVoltage] \* [nominalCapacity]. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KWH** represents Kilowatt Hour
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `toolBMS`: Use of a Battery Management System tool to protect, guarantee and optimize battery life. (`true` for yes)
+  - Attribute type: **Property**. [Boolean](https://schema.org/Boolean)
+  - Optional
+- `type`: It has to be StorageBatteryDevice. One of : `StorageBatteryDevice`.
+  - Attribute type: **Property**. [Text ](https://schema.org/Text)
+  - Required
+- `typeEnergySource`: Enum:'dam, fall, generator, network, photovoltaic, river, sea, waterTurbine, wind, other'. Type of Energy Source regarding `RechargeEnergySource` attribute.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `typeOfUse`: Accepted use regarding its positioning in an indoor / outdoor environment. Enum:' indoor, mixed, outdoor, other'. One of : `indoor`, `mixed`, `outdoor`, `other`.
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `usableEnergy`: Usable Energy. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KWH** represents Kilowatt Hour
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `volEnergyDensity`: Volume Energy density _(Code D)_. The format is structured by a sub-property of 2 items. The unit code (text) of measurement is **Wh/L** WattHour per Liter
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `weight`: Weight. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KGM** represents KiloGramme
+  - Attribute type: **Property**. [weight](https://schema.org/weight)
+  - Optional
+
+# BatteryMeasurement
+
+Schema that holds the state of the solar battery present on each pole.
+
+- `activePower`: Active Power, where 'phi' is the phase shift of the current compared to the voltage. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KWT** represents Kilowatt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `address`: The mailing address
+  - Attribute type: **Property**. [address](https://schema.org/address)
+  - Optional
+- `alternateName`: An alternative name for this item
+  - Attribute type: **Property**.
+  - Optional
+- `areaServed`: The geographic area where a service or offered item is provided
+  - Attribute type: **Property**. [Text](https://schema.org/Text)
+  - Optional
+- `batteryAssessmentMethods`: Assessment and calculation methods for measurements assessing the condition of the battery. Enum:'ampereHourMetry, dischargeTest, electrolyteDensity, highFrequencyImpedance, lowFrequencyImpedance, mathematicalModel, operatingVoltageWithClosedCircuit, quiescentVoltageWithOpenCircuit'. One of : `ampereHourMetry`, `dischargeTest`, `electrolyteDensity`, `highFrequencyImpedance`, `lowFrequencyImpedance`, `mathematicalModel`, `operatingVoltageWithClosedCircuit`, `quiescentVoltageWithOpenCircuit`.
+  - Attribute type: **Property**.
+  - Optional
+- `batteryLevel`: Device's battery level. A unique value of the following value 0.0=battery empty, 1.0=Battery full, -1.0=Transiently not determined.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `batteryStatus`: Status of the battery during the measurement( giving or not energy). Enum:'consumingEnergy, givingEnergy, standby'. One of : `consumingEnergy`, `givingEnergy`, `standby`.
+  - Attribute type: **Property**.
+  - Optional
+- `current`: Current. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **AMP** represents Ampere.
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.
+  - Attribute type: **Property**.
+  - Optional
+- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateEnergyMeteringStarted`: The starting date for metering energy in an ISO8601 UTC format
+  - Attribute type: **Property**. [DateTime.](https://schema.org/DateTime.)
+  - Optional
+- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.
+  - Attribute type: **Property**.
+  - Optional
+- `dateObservedFrom`: Observation period: Start date and time in an ISO8601 UTC format. The attribute can be used in addition to the 'dateObserved' attribute when it corresponds to a time interval to be highlighted.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `dateObservedTo`: Observation period: End date and time in an ISO8601 UTC format. The attribute can be used in addition to the 'dateObserved' attribute when it corresponds to a time interval to be highlighted.
+  - Attribute type: **Property**. [DateTime](https://schema.org/DateTime)
+  - Optional
+- `deepOfDischarge`: The Deep of Discharge (Code DoD) expressed in % is the ratio between the capacity already discharged and the nominal capacity of the accumulator. That is to say the energy consumed in the battery. Rule [DOD] = 100 % - [SOC]. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent
+  - Attribute type: **Property**. [Number.](https://schema.org/Number.)
+  - Optional
+- `description`: A description of this item
+  - Attribute type: **Property**.
+  - Optional
+- `id`: Unique identifier of the entity
+  - Attribute type: **Property**.
+  - Required
+- `inverterStatus`: Status of the inverter. A combination of values. Enum:'00-Onsector, 01-PowerFailure/OnBattery, 02-LossCommunication, 03-BatteryFault, 04-SystemShutDown, 05-TensionDip, 06-OverVoltage, 07-VoltageDrop, 08-VoltageIncrease, 09-LineNoise, 10-FrequencyVariation, 11-TransientDistortion, 12-HarmonicDistortion'
+  - Attribute type: **Property**.
+  - Optional
+- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
+  - Attribute type: **GeoProperty**.
+  - Required
+- `name`: The name of this item.
+  - Attribute type: **Property**.
+  - Optional
+- `openCircuitVoltage`: The Open Circuit Voltage (Code OCV) expressed in Volt is the difference of electrical potential between two terminals of a device when disconnected from any circuit. There is no external load connected and No external electric current flows between the terminals. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+  - Attribute type: **Property**.
+  - Optional
+- `reactivePower`: Reactive Power used by circuits. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **K5** represents kilovolt-ampere-reactive
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `refPointOfInterest`: Reference to a [PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/PointOfInterest/doc/spec.md) linked with the Repository.
+  - Attribute type: **Relationship**.
+  - Optional
+- `refStorageBatteryDevice`: Reference to a [Storage Battery Device](https://github.com/FIWARE/data-models/blob/master/specs/Energy/StorageBatteryDevice/doc/spec.md) which captured this observation, if the entity is used.
+  - Attribute type: **Relationship**.
+  - Optional
+- `seeAlso`: list of uri pointing to additional resources about the item
+  - Attribute type: **Property**.
+  - Optional
+- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.
+  - Attribute type: **Property**.
+  - Optional
+- `stateOfCharge`: The State of Charge (Code SoC) expressed in % is defined as the ratio between the remaining and the current capacities. The current capacity is the maximum capacity that can be withdrawn from the fully charged battery under specific discharge conditions. Rule [SOC] + [DOD] = 100 %. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent
+  - Attribute type: **Property**. [Number.](https://schema.org/Number.)
+  - Required
+- `stateOfHealth`: The State of Health (Code SoH) expressed in % is defined as the ratio between the maximum amount of charge that a fully charged battery can provide under its nominal discharge regime, and its nominal capacity. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **P1** represents Percent
+  - Attribute type: **Property**. [Number.](https://schema.org/Number.)
+  - Optional
+- `temperature`: Main Temperature recorded at the time of Observation compared to the nominal reference temperature of the device. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CEL** represents Degree Celsius
+  - Attribute type: **Property**. [Number](https://schema.org/Number)
+  - Optional
+- `type`: NGSI Entity type. It has to be StorageBatteryMeasurement. One of : `StorageBatteryMeasurement`.
+  - Attribute type: **Property**.
+  - Required
