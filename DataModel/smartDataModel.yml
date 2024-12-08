@@ -50,6 +50,20 @@ components:
         - "email"
         - "telephone"
         - "refProvider"
+      properties:
+        refProvider:
+          description: "Organization from which the system was acquired."
+          anyOf:
+            - description: "Property. Identifier format of any NGSI entity"
+              type: string
+              minLength: 1
+              maxLength: 256
+              pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+            - description: "Property. Identifier format of any NGSI entity"
+              type: string
+              format: uri
+          x-ngsi:
+            type: Relationship
 
     Crosswalk:
       type: object
